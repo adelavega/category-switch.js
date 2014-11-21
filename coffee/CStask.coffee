@@ -12,6 +12,15 @@ asTrials = [
 trialLength = 2000
 targetLength = 1000
 
+instructions = ["In each trial of this task, you will see a word that appears with a symbol above it. <br><br>
+When the symbol is &hearts;, you should decide if the word describes something that is, or could have ever been living, or nonliving. 
+<br><br> When the symbol is &#10021;, you should decide if the word describes something that is smaller or bigger than a soccer ball. <br><br>
+Press the arrow to continue <br><br><br>", 
+"The words that describe NONliving things are: snowflake, pebble, marble, knob, bicycle, coat, table, and cloud. <br><br>
+The words that describe LIVING things are: sparrow, mushroom, lizard, goldfish, lion, shark, alligator, and oak. <br><br>
+The words that describe SMALL things are: snowflake, pebble, marble, knob, sparrow, mushroom, lizard, and goldfish. <br><br>
+The words that describe BIG things are: bicycle, coat, table, cloud, lion, shark, alligator, and oak. <br><br>
+Press the right arrow to continue.<br><br>	"]
 
 class Session
 	constructor: (@asTrials) ->
@@ -25,12 +34,41 @@ class Session
 		$('#ins').modal('show')
 
 	start: ->
+		#Clear buttons
+		$(".btn").addClass('hidden')
 		# Show ready message
-		@showReady()
-		setTimeout (=> @nextTrial()), 2000
+		
+		$('#tCent').text('READY?')
+		setTimeout (=> @countDown(3)), 2000
 
-	showReady: ->
-		$('#tCent').html("READY?")
+	countDown:  (n) ->
+		$('#tCent').text(n)
+
+		if n > 0
+			setTimeout (=> @countDown(n-1)), 2000
+		else
+			@nextTrial()
+
+	startInstructions: ->
+		@inst_num = 0
+		@nextInstruction()
+
+	nextInstruction: ->
+		if @inst_num > 0
+			$('#prev').removeClass('hidden')
+		if @inst_num < instructions.length
+			$('#tCent').html(instructions[@inst_num])
+			@inst_num += 1
+		else
+			@start()
+
+	prevInstruction: ->
+		@inst_num = @inst_num - 2
+		if @inst_num == 0
+			$('#prev').addClass('hidden')
+
+		$('#tCent').html(instructions[@inst_num])
+		@inst_num += 1
 
 	nextTrial: ->
 		@currTrial = @trials[@trialNumber]
@@ -86,9 +124,14 @@ trialFactory = (trials) ->
 
 jQuery ->
 	currSession = new Session(asTrials)
+	currSession.startInstructions()
 
-	$('#ins').click ->
-		currSession.start()
+	$("#next").click ->
+		currSession.nextInstruction()
+
+	$("#prev").click ->
+		currSession.prevInstruction()
+
 
 	$(document).keypress (event) ->
 		currSession.currTrial.logResponse(String.fromCharCode(event.keyCode))

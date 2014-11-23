@@ -1,16 +1,22 @@
-# Process an anti-saccade task
+# Category-switch task
 
-# list of lists, delay then amt
-asTrials = [
-	["left", 0]	
-	["right", 1]
-	["right", 0]
-	["left", 1]
+csPrac = [
+	["alligator", "living"]
+	["snowflake", "living"]
+	["bicycle", "living"]
+	["mushroom", "living"]
+	["cloud", "living"]
+	["goldfish", "living"]
+	["lizard", "living"]
+	["table", "living"]
+	["marble", "living"]
+	["shark", "living"]
+	["knob", "living"]
+	["lion", "living"]
 ]
 
-
 trialLength = 2000
-targetLength = 1000
+ITI = 1000
 
 instructions = ["In each trial of this task, you will see a word that appears with a symbol above it. <br><br>
 When the symbol is &hearts;, you should decide if the word describes something that is, or could have ever been living, or nonliving. 
@@ -23,15 +29,12 @@ The words that describe BIG things are: bicycle, coat, table, cloud, lion, shark
 Press the right arrow to continue.<br><br>	"]
 
 class Session
-	constructor: (@asTrials) ->
+	constructor: (@trials_in) ->
 		@trialNumber = 0
-		@max_trials = @asTrials.length
+		@max_trials = @trials_in.length
 
 		# Create trials using TrialFactory
-		@trials = trialFactory(@asTrials)
-
-		# Show instructions
-		$('#ins').modal('show')
+		@trials = trialFactory(@trials_in)
 
 	start: ->
 		#Clear buttons
@@ -39,13 +42,13 @@ class Session
 		# Show ready message
 		
 		$('#tCent').text('READY?')
-		setTimeout (=> @countDown(3)), 2000
+		setTimeout (=> @countDown(3)), 1000
 
 	countDown:  (n) ->
 		$('#tCent').text(n)
 
 		if n > 0
-			setTimeout (=> @countDown(n-1)), 2000
+			setTimeout (=> @countDown(n-1)), 1000
 		else
 			@nextTrial()
 
@@ -76,7 +79,7 @@ class Session
 			@endSession()
 		else
 			@currTrial.show()
-			setTimeout (=> @currTrial.clear()), targetLength
+			setTimeout (=> @currTrial.clear()), trialLength - ITI
 
 			setTimeout (=> @endTrial()), trialLength
 
@@ -84,7 +87,9 @@ class Session
 		## Log current response, and start next trial
 		@data += [@currTrial.rt, @currTrial.resp]
 		@trialNumber++
+
 		@nextTrial()
+
 			
 	endSession: ->
 		# Show finished message
@@ -92,27 +97,36 @@ class Session
 
 
 class Trial
-	constructor: (@tLocation, @t_content) ->
+	constructor: (@item, @judgment) ->
 
 	show: ->
-		$('#tCent').html('+')
-		if @tLocation == "left"
-			$('#tLeft').show()
-			$('#tLeft').html(@t_content)
-			$('#tRight').hide()
-		else
-			$('#tRight').show()
-			$('#tRight').html(@t_content)
-			$('#tLeft').hide()
+
+		# Set upper text to judgment type
+		$('#uCent').html(@processJudgment(@judgment))
+		# Set middle center text to stimuli
+		$('#tCent').text(@item)
+
+		$('#uCent').show()
+		$('#tCent').show()
 
 		# Log trial start time
 		@startTime = (new Date).getTime()
 
+
+	processJudgment: (judgment) ->
+		if judgment == "living"
+			symbol = "&hearts;"
+		else
+			symbol = "&#10021;"
+
+		symbol
+
 	clear: ->
-		$('#tRight').hide()
-		$('#tLeft').hide()
+		$('#uCent').hide()
+		$('#tCent').hide()
 
 	logResponse: (resp) ->
+		alert(@rt)
 		if not @resp?
 			@rt = (new Date).getTime() - @startTime
 			@resp = resp
@@ -123,7 +137,7 @@ trialFactory = (trials) ->
 
 
 jQuery ->
-	currSession = new Session(asTrials)
+	currSession = new Session(csPrac)
 	currSession.startInstructions()
 
 	$("#next").click ->

@@ -3,7 +3,7 @@
 csPrac = [
 	["alligator", "living"]
 	["snowflake", "living"]
-	["bicycle", "living"]
+	["bicycle", "living"]	
 	["mushroom", "living"]
 	["cloud", "living"]
 	["goldfish", "living"]
@@ -29,12 +29,12 @@ The words that describe BIG things are: bicycle, coat, table, cloud, lion, shark
 Press the right arrow to continue.<br><br>	"]
 
 class Session
-	constructor: (@trials_in) ->
-		@trialNumber = 0
-		@max_trials = @trials_in.length
+	constructor: (@blocks_in) ->
+		@blockNumber = 0
+		@max_blocks = @blocks_in.length
 
 		# Create trials using TrialFactory
-		@trials = trialFactory(@trials_in)
+		@blocks = blockFactory(@blocks_in)
 
 	start: ->
 		#Clear buttons
@@ -42,15 +42,7 @@ class Session
 		# Show ready message
 		
 		$('#tCent').text('READY?')
-		setTimeout (=> @countDown(3)), 1000
-
-	countDown:  (n) ->
-		$('#tCent').text(n)
-
-		if n > 0
-			setTimeout (=> @countDown(n-1)), 1000
-		else
-			@nextTrial()
+		setTimeout (=> @nextBlock), 1000
 
 	startInstructions: ->
 		@inst_num = 0
@@ -73,6 +65,36 @@ class Session
 		$('#tCent').html(instructions[@inst_num])
 		@inst_num += 1
 
+	nextBlock: ->
+		@currBlock = @block[@blockNumber]
+		if @blockNumber >= @max_blocks
+			@endSession()
+		else
+			@blockNumber++
+			@currBlock.start(## call back function here should be nextBlock)
+			setTimeout (=> @currTrial.clear()), trialLength - ITI
+
+			setTimeout (=> @endTrial()), trialLength
+	
+	endSession: ->
+		# Show finished message
+		$('#done').modal('show')			
+
+class Block
+	constructor: (@trials_in) ->
+		@trialNumber = 0
+		@max_trials = @trials_in.length
+
+		# Create trials using TrialFactory
+		@trials = trialFactory(@trials_in)
+
+	start: ->
+		#Clear buttons
+		$(".btn").addClass('hidden')
+		# Show ready message
+		$('#tCent').text('READY?')
+		setTimeout (=> @startTrial()), 1000)
+
 	nextTrial: ->
 		@currTrial = @trials[@trialNumber]
 		if @trialNumber >= @max_trials
@@ -89,11 +111,6 @@ class Session
 		@trialNumber++
 
 		@nextTrial()
-
-			
-	endSession: ->
-		# Show finished message
-		$('#done').modal('show')			
 
 
 class Trial
@@ -135,6 +152,9 @@ class Trial
 trialFactory = (trials) ->
 	new Trial(n[0], n[1]) for n in trials
 
+blockFactory = (blocks) ->
+	new Block(trials) for n in blocks
+
 
 jQuery ->
 	currSession = new Session(csPrac)
@@ -146,13 +166,5 @@ jQuery ->
 	$("#prev").click ->
 		currSession.prevInstruction()
 
-
 	$(document).keypress (event) ->
 		currSession.currTrial.logResponse(String.fromCharCode(event.keyCode))
-
-
-
-
-
-
-

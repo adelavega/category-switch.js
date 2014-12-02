@@ -1,6 +1,6 @@
 # Category-switch task
 
-csPrac = [
+livingPrac = [
 	["alligator", "living"]
 	["snowflake", "living"]
 	["bicycle", "living"]	
@@ -15,25 +15,54 @@ csPrac = [
 	["lion", "living"]
 ]
 
-csTest1 = [
+sizePrac = [
+	["table", "size"]
+	["knob", "size"]
+	["pebble", "size"]
+	["oak", "size"]
+	["bicycle", "size"]
+	["coat", "size"]
+	["shark", "size"]
+	["lizard", "size"]
+	["alligator", "size"]
+	["lion", "size"]
+	["snowflake", "size"]
+	["bicycle", "size"]
+	["shark", "size"]
+	["lizard", "size"]
+]
+
+mixedBlock = [
+	["sparrow", "size"]
+	["table", "living"]
+	["lion", "size"]
+	["sparrow", "living"]
+	["cloud", "living"]
+	["alligator", "size"]
+	["lizard", "size"]
+	["marble", "living"]
+	["table", "size"]
+	["pebble", "size"]
+	["shark", "living"]
+	["coat", "living"]
 	["alligator", "living"]
+	["pebble", "size"]
+	["lion", "living"]
 	["snowflake", "living"]
+	["lizard", "living"]
 ]
 
-csTest2 = [
-	["alligator2", "living"]
-	["snowflake2", "living"]
+
+
+blocks = [
+	["livingOnly", "Get ready to begin... Only living or non-living", livingPrac]
+	["sizeOnly", "Get ready for mre trials... Only size trials", sizePrac]
+	["mixed", "Get ready for more trials... this is a mixed block", mixedBlock]
 ]
 
-csTest3 = [
-	["alligator3", "living"]
-	["snowflake3", "living"]
-]
-
-blocks = [csTest1, csTest2, csTest3]
-
-trialLength = 2000
+trialLength = 3500
 ITI = 1000
+IBI = 4000
 
 instructions = ["In each trial of this task, you will see a word that appears with a symbol above it. <br><br>
 When the symbol is &hearts;, you should decide if the word describes something that is, or could have ever been living, or nonliving. 
@@ -43,7 +72,21 @@ Press the arrow to continue <br><br><br>",
 The words that describe LIVING things are: sparrow, mushroom, lizard, goldfish, lion, shark, alligator, and oak. <br><br>
 The words that describe SMALL things are: snowflake, pebble, marble, knob, sparrow, mushroom, lizard, and goldfish. <br><br>
 The words that describe BIG things are: bicycle, coat, table, cloud, lion, shark, alligator, and oak. <br><br>
-Press the right arrow to continue.<br><br>	"]
+Press the right arrow to continue.<br><br>	",
+"If a item is NON-living press 'F' <br><br>
+If the item is living, press 'J' <br><br>
+If the item is smaller than soccer ball press 'F' <br><br>
+If the item is bigger than soccer ball press 'J' <br><br>"]
+
+data = []
+saveData = (newdata) ->
+	data.push([newdata])
+
+mean = (numericArray) ->
+	sum = numericArray.reduce((a, b) -> a + b)
+	avg = sum / numericArray.length
+
+	return avg
 
 class Session
 	constructor: (@blocks_in) ->
@@ -56,10 +99,7 @@ class Session
 	start: ->
 		#Clear buttons
 		$(".btn").addClass('hidden')
-		# Show ready message
-		
-		$('#tCent').text('READY?')
-		setTimeout (=> @nextBlock()), 1000
+		@nextBlock()
 
 	startInstructions: ->
 		@inst_num = 0
@@ -95,30 +135,54 @@ class Session
 		$('#done').modal('show')			
 
 class Block
-	constructor: (@trials_in) ->
+	constructor: (@condition, @message, @trials_in) ->
 		@trialNumber = 0
 		@max_trials = @trials_in.length
 
 		# Create trials using TrialFactory
 		@trials = trialFactory(@trials_in)
 
+		@data = []
+
 	start: (@endBlock) ->
 		# Show ready message
-		$('#tCent').text('READY?')
-		setTimeout (=> @nextTrial()), 1000
+		$('#tCent').show()
+		$('#tCent').text(@message)
+
+		setTimeout (=> @nextTrial()), IBI
 
 	nextTrial: ->
 		@currTrial = @trials[@trialNumber]
 		if @trialNumber >= @max_trials
-			@endBlock()
+			@feedback()
 		else
 			@trialNumber++
-			@currTrial.show (=> @nextTrial()) ## CALL BACKS ARE NOT WORKING
+			@currTrial.show ((arg1) => @logTrial arg1)
+
+	feedback: ->
+		goodRTs = [n[0] for n in @data][0]
+
+		goodRTs.splice(goodRTs.indexOf('NA'), 1) while goodRTs.indexOf('NA') > -1
+
+		$('#tCent').show()
+		$('#tCent').text("Your average reaction time was: " + mean(goodRTs).toString() + "ms")
+
+		setTimeout (=> @endBlock()), IBI
+
+	logTrial: (trialData) ->
+		# Save data to server (or big data file)
+		saveData([@condition].concat(trialData))
+
+		# Save data locally in block
+		@data.push(trialData)
+		@nextTrial()
 
 class Trial
 	constructor: (@item, @judgment) ->
+		@rt = 'NA'
+		@resp = 'NA'
 
-	show: (@endTrial)  ->
+	show: (endTrial)  ->
 
 		# Set upper text to judgment type
 		$('#uCent').html(@processJudgment(@judgment))
@@ -132,7 +196,9 @@ class Trial
 		@startTime = (new Date).getTime()
 
 		setTimeout (=> @clear()), trialLength - ITI
-		setTimeout (=> @saveEndTrial()), trialLength
+
+		## End trial 
+		setTimeout (=> endTrial([@rt, @resp])), trialLength
 
 	processJudgment: (judgment) ->
 		if judgment == "living"
@@ -142,26 +208,20 @@ class Trial
 
 		symbol
 
-	saveEndTrial: ->
-		@data += [@rt, @resp]
-		@endTrial()
-
 	clear: ->
 		$('#uCent').hide()
 		$('#tCent').hide()
 
 	logResponse: (resp) ->
-		alert(@rt)
-		if not @resp?
-			@rt = (new Date).getTime() - @startTime
-			@resp = resp
+		@rt = (new Date).getTime() - @startTime
+		@resp = resp
 
 # Make list of trials
 trialFactory = (trials) ->
 	new Trial(n[0], n[1]) for n in trials
 
 blockFactory = (blocks) ->
-	new Block(n) for n in blocks
+	new Block(n[0], n[1], n[2]) for n in blocks
 
 
 jQuery ->

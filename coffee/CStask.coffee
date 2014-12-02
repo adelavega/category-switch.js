@@ -64,19 +64,25 @@ trialLength = 3500
 ITI = 1000
 IBI = 4000
 
-instructions = ["In each trial of this task, you will see a word that appears with a symbol above it. <br><br>
-When the symbol is &hearts;, you should decide if the word describes something that is, or could have ever been living, or nonliving. 
-<br><br> When the symbol is &#10021;, you should decide if the word describes something that is smaller or bigger than a soccer ball. <br><br>
-Press the arrow to continue <br><br><br>", 
-"The words that describe NONliving things are: snowflake, pebble, marble, knob, bicycle, coat, table, and cloud. <br><br>
-The words that describe LIVING things are: sparrow, mushroom, lizard, goldfish, lion, shark, alligator, and oak. <br><br>
-The words that describe SMALL things are: snowflake, pebble, marble, knob, sparrow, mushroom, lizard, and goldfish. <br><br>
-The words that describe BIG things are: bicycle, coat, table, cloud, lion, shark, alligator, and oak. <br><br>
-Press the right arrow to continue.<br><br>	",
-"If a item is NON-living press 'F' <br><br>
-If the item is living, press 'J' <br><br>
-If the item is smaller than soccer ball press 'F' <br><br>
-If the item is bigger than soccer ball press 'J' <br><br>"]
+instructions = ["In each trial of this task, you will see a word that appears with a symbol above it. \n\n
+When the symbol is   " + String.fromCharCode(10084) + "  you should decide if \nthe word describes something that is, or could have ever been living, or nonliving.\n
+\nWhen the symbol is   " + String.fromCharCode(10021) + "  you should decide if \nthe word describes something that is smaller or bigger than a soccer ball. \n\n
+Press the arrow to continue \n", 
+"The words that describe NON-LIVING things are: \nsnowflake, pebble, marble, knob, bicycle, coat, table, and cloud. \n\n
+The words that describe LIVING things are: \nsparrow, mushroom, lizard, goldfish, lion, shark, alligator, and oak. \n\n
+The words that describe SMALL things are: \nsnowflake, pebble, marble, knob, sparrow, mushroom, lizard, and goldfish. \n\n
+The words that describe BIG things are: \nbicycle, coat, table, cloud, lion, shark, alligator, and oak. \n\n
+Press the right arrow to continue.\n",
+"If the item is NON-living press 'F' \n\n
+If the item is living, press 'J' \n\n
+If the item is smaller than soccer ball press 'F' \n\n
+If the item is bigger than soccer ball press 'J' \n\n"]
+
+# Set up canvas
+c = document.getElementById("canvas")
+ctx = c.getContext("2d")
+width = canvas.width
+height = canvas.height
 
 data = []
 saveData = (newdata) ->
@@ -88,6 +94,30 @@ mean = (numericArray) ->
 
 	return avg
 
+# Clears canvas
+clear_canvas = ->
+	ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+# Writes multline text onto the canvas, and by default clears
+multilineText = (txt, x, y, font, lineheight=20, clear=true) ->
+	clear_canvas() if clear
+
+	ctx.font = font
+	console.log(font)
+	console.log(ctx.font)
+
+	if x == "center"
+		ctx.textAlign = "center"
+		x = canvas.width/2 
+
+	y = canvas.height/2 if y == "center"
+
+	lines = txt.split('\n')
+	i = 0
+	while i < lines.length
+	  ctx.fillText lines[i], x, y + (i * lineheight)
+	  i++
+
 class Session
 	constructor: (@blocks_in) ->
 		@blockNumber = 0
@@ -98,7 +128,7 @@ class Session
 
 	start: ->
 		#Clear buttons
-		$(".btn").addClass('hidden')
+		$(".btn").css({'visibility' : 'hidden'})
 		@nextBlock()
 
 	startInstructions: ->
@@ -107,9 +137,9 @@ class Session
 
 	nextInstruction: ->
 		if @inst_num > 0
-			$('#prev').removeClass('hidden')
+			$('#prev').css({'visibility' : 'visible'})
 		if @inst_num < instructions.length
-			$('#tCent').html(instructions[@inst_num])
+			multilineText(instructions[@inst_num], 10, 30, "20px Arial", 30)
 			@inst_num += 1
 		else
 			@start()
@@ -117,9 +147,9 @@ class Session
 	prevInstruction: ->
 		@inst_num = @inst_num - 2
 		if @inst_num == 0
-			$('#prev').addClass('hidden')
+			$('#prev').css({'visibility' : 'visible'})
 
-		$('#tCent').html(instructions[@inst_num])
+		multilineText(instructions[@inst_num], 10, 30, "20px Arial", 30)
 		@inst_num += 1
 
 	nextBlock: ->
@@ -146,8 +176,7 @@ class Block
 
 	start: (@endBlock) ->
 		# Show ready message
-		$('#tCent').show()
-		$('#tCent').text(@message)
+		multilineText(@message, 10, 75, "25px Arial", 75)
 
 		setTimeout (=> @nextTrial()), IBI
 
@@ -164,8 +193,7 @@ class Block
 
 		goodRTs.splice(goodRTs.indexOf('NA'), 1) while goodRTs.indexOf('NA') > -1
 
-		$('#tCent').show()
-		$('#tCent').text("Your average reaction time was: " + mean(goodRTs).toString() + "ms")
+		multilineText("Your average reaction time was: " + mean(goodRTs).toString() + "ms", 10, 30, "20px Arial")
 
 		setTimeout (=> @endBlock()), IBI
 
@@ -185,32 +213,24 @@ class Trial
 	show: (endTrial)  ->
 
 		# Set upper text to judgment type
-		$('#uCent').html(@processJudgment(@judgment))
+		multilineText(@processJudgment(@judgment), "center", canvas.height/2 - 75, "40px Arial")
 		# Set middle center text to stimuli
-		$('#tCent').text(@item)
-
-		$('#uCent').show()
-		$('#tCent').show()
+		multilineText(@item, "center", "center", "35px Arial", 20, false)
 
 		# Log trial start time
 		@startTime = (new Date).getTime()
-
-		setTimeout (=> @clear()), trialLength - ITI
+		setTimeout (=> clear_canvas()), trialLength - ITI
 
 		## End trial 
 		setTimeout (=> endTrial([@rt, @resp])), trialLength
 
 	processJudgment: (judgment) ->
 		if judgment == "living"
-			symbol = "&hearts;"
+			symbol = String.fromCharCode(10084) 
 		else
-			symbol = "&#10021;"
+			symbol = String.fromCharCode(10021)
 
 		symbol
-
-	clear: ->
-		$('#uCent').hide()
-		$('#tCent').hide()
 
 	logResponse: (resp) ->
 		@rt = (new Date).getTime() - @startTime
@@ -226,6 +246,7 @@ blockFactory = (blocks) ->
 
 jQuery ->
 	currSession = new Session(blocks)
+
 	currSession.startInstructions()
 
 	$("#next").click ->

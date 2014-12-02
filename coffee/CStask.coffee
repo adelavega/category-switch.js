@@ -15,6 +15,23 @@ csPrac = [
 	["lion", "living"]
 ]
 
+csTest1 = [
+	["alligator", "living"]
+	["snowflake", "living"]
+]
+
+csTest2 = [
+	["alligator2", "living"]
+	["snowflake2", "living"]
+]
+
+csTest3 = [
+	["alligator3", "living"]
+	["snowflake3", "living"]
+]
+
+blocks = [csTest1, csTest2, csTest3]
+
 trialLength = 2000
 ITI = 1000
 
@@ -42,7 +59,7 @@ class Session
 		# Show ready message
 		
 		$('#tCent').text('READY?')
-		setTimeout (=> @nextBlock), 1000
+		setTimeout (=> @nextBlock()), 1000
 
 	startInstructions: ->
 		@inst_num = 0
@@ -66,15 +83,12 @@ class Session
 		@inst_num += 1
 
 	nextBlock: ->
-		@currBlock = @block[@blockNumber]
+		@currBlock = @blocks[@blockNumber]
 		if @blockNumber >= @max_blocks
 			@endSession()
 		else
 			@blockNumber++
-			@currBlock.start(## call back function here should be nextBlock)
-			setTimeout (=> @currTrial.clear()), trialLength - ITI
-
-			setTimeout (=> @endTrial()), trialLength
+			@currBlock.start (=> @nextBlock())
 	
 	endSession: ->
 		# Show finished message
@@ -88,35 +102,23 @@ class Block
 		# Create trials using TrialFactory
 		@trials = trialFactory(@trials_in)
 
-	start: ->
-		#Clear buttons
-		$(".btn").addClass('hidden')
+	start: (@endBlock) ->
 		# Show ready message
 		$('#tCent').text('READY?')
-		setTimeout (=> @startTrial()), 1000)
+		setTimeout (=> @nextTrial()), 1000
 
 	nextTrial: ->
 		@currTrial = @trials[@trialNumber]
 		if @trialNumber >= @max_trials
-			@endSession()
+			@endBlock()
 		else
-			@currTrial.show()
-			setTimeout (=> @currTrial.clear()), trialLength - ITI
-
-			setTimeout (=> @endTrial()), trialLength
-
-	endTrial:  ->
-		## Log current response, and start next trial
-		@data += [@currTrial.rt, @currTrial.resp]
-		@trialNumber++
-
-		@nextTrial()
-
+			@trialNumber++
+			@currTrial.show (=> @nextTrial()) ## CALL BACKS ARE NOT WORKING
 
 class Trial
 	constructor: (@item, @judgment) ->
 
-	show: ->
+	show: (@endTrial)  ->
 
 		# Set upper text to judgment type
 		$('#uCent').html(@processJudgment(@judgment))
@@ -129,6 +131,8 @@ class Trial
 		# Log trial start time
 		@startTime = (new Date).getTime()
 
+		setTimeout (=> @clear()), trialLength - ITI
+		setTimeout (=> @saveEndTrial()), trialLength
 
 	processJudgment: (judgment) ->
 		if judgment == "living"
@@ -137,6 +141,10 @@ class Trial
 			symbol = "&#10021;"
 
 		symbol
+
+	saveEndTrial: ->
+		@data += [@rt, @resp]
+		@endTrial()
 
 	clear: ->
 		$('#uCent').hide()
@@ -153,11 +161,11 @@ trialFactory = (trials) ->
 	new Trial(n[0], n[1]) for n in trials
 
 blockFactory = (blocks) ->
-	new Block(trials) for n in blocks
+	new Block(n) for n in blocks
 
 
 jQuery ->
-	currSession = new Session(csPrac)
+	currSession = new Session(blocks)
 	currSession.startInstructions()
 
 	$("#next").click ->
@@ -167,4 +175,4 @@ jQuery ->
 		currSession.prevInstruction()
 
 	$(document).keypress (event) ->
-		currSession.currTrial.logResponse(String.fromCharCode(event.keyCode))
+		currSession.currBlock.currTrial.logResponse(String.fromCharCode(event.keyCode))

@@ -62,7 +62,7 @@ blocks = [
 
 trialLength = 3500
 ITI = 1000
-IBI = 4000
+IBI = 1000
 
 instructions = ["In each trial of this task, you will see a word that appears with a symbol above it. \n\n
 When the symbol is   " + String.fromCharCode(10084) + "  you should decide if \nthe word describes something that is, or could have ever been living, or nonliving.\n
@@ -77,6 +77,19 @@ Press the right arrow to continue.\n",
 If the item is living, press 'J' \n\n
 If the item is smaller than soccer ball press 'F' \n\n
 If the item is bigger than soccer ball press 'J' \n\n"]
+
+
+living = new Image();
+living.src = "img/living.png"
+
+nonliving = new Image();
+nonliving.src = "img/non_living.png"
+
+living_col = new Image();
+living_col.src = "img/living_blue.png"
+
+nonliving_col = new Image();
+nonliving_col.src = "img/non_living_blue.png"
 
 # Set up canvas
 c = document.getElementById("canvas")
@@ -103,8 +116,6 @@ multilineText = (txt, x, y, font, lineheight=20, clear=true) ->
 	clear_canvas() if clear
 
 	ctx.font = font
-	console.log(font)
-	console.log(ctx.font)
 
 	if x == "center"
 		ctx.textAlign = "center"
@@ -210,12 +221,23 @@ class Trial
 		@rt = 'NA'
 		@resp = 'NA'
 
+		if @judgment == "living"
+			@left = nonliving
+			@left_selected = nonliving_col
+
+			@right = living
+			@right_selected = living_col
+
 	show: (endTrial)  ->
 
 		# Set upper text to judgment type
 		multilineText(@processJudgment(@judgment), "center", canvas.height/2 - 75, "40px Arial")
 		# Set middle center text to stimuli
 		multilineText(@item, "center", "center", "35px Arial", 20, false)
+
+		if @judgment = "living"
+			ctx.drawImage(@left, 10, canvas.height/2-100, 75, 75)
+			ctx.drawImage(@right, canvas.width - 100, canvas.height/2-85, 75, 75)
 
 		# Log trial start time
 		@startTime = (new Date).getTime()
@@ -233,6 +255,12 @@ class Trial
 		symbol
 
 	logResponse: (resp) ->
+		if resp == "f" ##Check for caps
+			ctx.drawImage(@left_selected, 10, canvas.height/2-100, 75, 75)
+			ctx.drawImage(@left_selected, 10, canvas.height/2-100, 75, 75)
+		else if resp == "j"
+			ctx.drawImage(@right_selected, canvas.width - 100, canvas.height/2-85, 75, 75)
+
 		@rt = (new Date).getTime() - @startTime
 		@resp = resp
 

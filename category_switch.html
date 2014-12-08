@@ -5,10 +5,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="css/custom.css" rel="stylesheet" media="screen">
 
 
 </head>
 <body>
+	<div class="modal fade"  id="error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header dialog-header-error">
+	        <h4 class="modal-title" id="myModalLabel">Incorrect!</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Try again</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade"  id="correct">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header dialog-header-correct">
+	        <h4 class="modal-title">That's right!</h4>
+	      </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 	<div class="modal fade" id="done" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -26,13 +51,15 @@
 	  </div>
 	</div>
 
+
+
 	<br><br>
 
-	<canvas id="canvas" width = 800 height = 400 style="padding-left: 0;padding-right: 0;margin-left: auto;margin-right: auto;display: block"></canvas><br>
+	<canvas id="canvas" width = 800 height = 350 style="padding-left: 0;padding-right: 0;margin-left: auto;margin-right: auto;display: block"></canvas>
 
 
-	<button type="button" id="prev" class="btn btn-primary btn-lg" style="position:relative; left: 25%; visibility: hidden"><span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span></button>
-	<button type="button" id="next" class="btn btn-primary btn-lg" style="position:relative; left: 65%"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></button>
+	<button type="button" id="left" class="btn btn-primary btn-lg" style="position:relative; left: 20%; visibility: hidden"><span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> Back</button>
+	<button type="button" id="right" class="btn btn-primary btn-lg" style="position:relative; left: 45%">Okay, continue</button>
 	
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

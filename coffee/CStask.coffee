@@ -58,23 +58,23 @@ IBI = 1000
 
 instructions = ["In this test, you'll see a series of words, one at the time \n\n
 Above each word you'll see a symbol \n\n
-When the symbol is   " + String.fromCharCode(10084) + "  decide if the word describes \nsomething that is, or could have ever been living\n
-\nWhen the symbol is   " + String.fromCharCode(10021) + "  decide if the world describes\nsomething that is smaller or bigger than a soccer ball. \n\n", 
+When the symbol is   #{String.fromCharCode(10084)}  decide if the word describes \nsomething that is, or could have ever been living\n
+\nWhen the symbol is   #{String.fromCharCode(10021)}  decide if the world describes\nsomething that is smaller or bigger than a soccer ball. \n\n", 
 
-"\n\nIf you see a   " + String.fromCharCode(10084) + "  , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
+"\n\nIf you see a   #{String.fromCharCode(10084)}  , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
 \nsomething that is living or nonliving?",
 
-"\n\nIf you see a   " + String.fromCharCode(10021) + "  , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
+"\n\nIf you see a   #{String.fromCharCode(10021)}  , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
 \nsomething that is living or nonliving?",
 
 "You'll use the 'F' and 'J' keys to respond\n
 Use your left and right index fingers\n\n
-When you see the  " + String.fromCharCode(10084) + " icon\n
-Press  'F' to indicate 'non-living'\n
-Press 'J' to indicate 'living'\n\n
-When you see the  " + String.fromCharCode(10021) + " icon\n
-Press  'F' to indicate 'smaller than a soccer ball'\n
-Press 'J' to indicate 'bigger than a soccer ball'",
+When you see the  #{String.fromCharCode(10084)} icon\n
+Press  'F' for 'non-living'\n
+Press 'J' for 'living'\n\n
+When you see the  #{String.fromCharCode(10021)} icon\n
+Press  'F' for 'smaller than a soccer ball'\n
+Press 'J' for 'bigger than a soccer ball'",
 
 "\n\nWhich key do you press for a item that is \n
 smaller than a soccer ball?",
@@ -228,7 +228,7 @@ class Instruction
 
 class Block
 	constructor: (@condition, @message, @trials) ->
-		@trials = trials[0]
+		@trials = trials
 		@trialNumber = 0
 		@max_trials = @trials.length
 		@data = []
@@ -267,7 +267,7 @@ class PracticeBlock extends Block
 		# get accuracy from data
 		accs = mean([n[2] for n in @data][0])
 
-		multilineText("You got " + accs*100.toString() + "% of trials correct", 10, 30, "30px Arial")
+		multilineText("You got #{accs*100.toString()}% of trials correct", 10, 30, "30px Arial")
 
 		if accs < 0.75
 			multilineText("You need to get at least 75% right to continue", 10, 100, "25px Arial", 20, false)
@@ -308,7 +308,7 @@ class RTFeedbackBlock extends Block
 		goodRTs = [n[0] for n in @data][0]
 		goodRTs.splice(goodRTs.indexOf('NA'), 1) while goodRTs.indexOf('NA') > -1
 
-		multilineText("Your average reaction time was: " + mean(goodRTs).toString() + "ms", 10, 30, "20px Arial")
+		multilineText("Your average reaction time was: #{mean(goodRTs).toString()}ms", 10, 30, "20px Arial")
 
 class Trial
 	constructor: (@item, @corrResp) ->
@@ -396,9 +396,9 @@ blocks = [
 	new Instruction instructions[4], "F", "J", "left"
 	new Instruction instructions[5], "F", "J", "right"
 	new Instruction instructions[6], false, "Let's practice"
-	new PracticeBlock "livingPrac", "Get ready...\n10 words coming up", [new FeedbackTrial(n[0], n[1]) for n in livingPrac]
+	new PracticeBlock "livingPrac", "Get ready...\n10 words coming up", (new FeedbackTrial(n[0], n[1]) for n in livingPrac)
 	new Instruction instructions[7], false, "Let's practice"
-	new PracticeBlock "sizePrac", "Get ready...\n10 words coming up", [new FeedbackTrial(n[0], n[1]) for n in sizePrac]
+	new PracticeBlock "sizePrac", "Get ready...\n10 words coming up", (new FeedbackTrial(n[0], n[1]) for n in sizePrac)
 	# ["livingOnly", "Get ready to begin... Only living or non-living", livingPrac]
 	# ["sizeOnly", "Get ready for mre trials... Only size trials", sizePrac]
 	# ["mixed", "Get ready for more trials... this is a mixed block", mixedBlock]

@@ -139,13 +139,13 @@ multilineText = (txt, x, y, font, lineheight=20, clear=true) ->
 
 	ctx.font = font
 
-	if x == "center"
+	if x is "center"
 		ctx.textAlign = "center"
 		x = canvas.width/2 
 	else
 		ctx.textAlign = "start"
 
-	y = canvas.height/2 if y == "center"
+	y = canvas.height/2 if y is "center"
 
 	lines = txt.split('\n')
 	i = 0
@@ -195,7 +195,7 @@ class Instruction
 	start: (@exitTrial) ->
 		multilineText(@message, 10, 30, "25px Arial", 30)
 
-		if @left_button != false
+		if @left_button isnt false
 			$('#left').css({'visibility' : 'visible'})
 		if @right_button?
 			$('#right').css({'visibility' : 'visible'})
@@ -206,7 +206,7 @@ class Instruction
 	buttonClick: (button) ->
 
 		if @corrResp?
-			if @corrResp == button
+			if @corrResp is button
 			## Change buttons to be "Okay continue"
 				$('#correct').modal('show')
 				@clearButtons()
@@ -217,9 +217,9 @@ class Instruction
 				$('#error').modal('show')
 		else
 			@clearButtons()
-			if button == 'left'
+			if button is 'left'
 				@exitTrial false
-			else if button == 'right'
+			else if button is 'right'
 				@exitTrial()
 
 	clearButtons: ->
@@ -330,7 +330,7 @@ class Trial
 		setTimeout (=> endTrial([@rt, @resp, @acc])), trialLength
 
 	processJudgment: (judgment) ->
-		if judgment == "living" or judgment == "nonliving"
+		if judgment is "living" or judgment is "nonliving"
 			symbol = String.fromCharCode(10084) 
 		else
 			symbol = String.fromCharCode(10021)
@@ -341,20 +341,20 @@ class Trial
 		@rt = (new Date).getTime() - @startTime
 		@resp = resp
 
-		if resp == "f"
-			if @corrResp == "nonliving" or @corrResp == "smaller"
+		if resp is "f"
+			if @corrResp is "nonliving" or @corrResp is "smaller"
 				@acc = 1
 			else
 				@acc = 0
-		else if resp == "j"
-			if @corrResp == "living" or @corrResp == "bigger"
+		else if resp is "j"
+			if @corrResp is "living" or @corrResp is "bigger"
 				@acc = 1
 			else
 				@acc = 0
 
 class FeedbackTrial extends Trial
 	constructor: (@item, @corrResp) ->
-		if @corrResp == "living" or @corrResp == "nonliving"
+		if @corrResp is "living" or @corrResp is "nonliving"
 			@left = nonliving
 			@left_selected = nonliving_col
 			@left_size = 75
@@ -382,9 +382,9 @@ class FeedbackTrial extends Trial
 	logResponse: (resp) ->
 		super resp
 
-		if resp == "f" ##Check for caps
+		if resp is "f" ##Check for caps
 			ctx.drawImage(@left_selected, 10, canvas.height/2-100,  @left_size, @left_size)
-		else if resp == "j"
+		else if resp is "j"
 			ctx.drawImage(@right_selected, canvas.width - 100, canvas.height/2-85, @right_size, @right_size)
 		
 

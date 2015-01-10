@@ -5,14 +5,29 @@ livingPrac = [
 	["snowflake", "nonliving"]
 	["bicycle", "nonliving"]	
 	["mushroom", "living"]
-	# ["cloud", "nonliving"]
-	# ["goldfish", "living"]
-	# ["lizard", "living"]
-	# ["table", "nonliving"]
-	# ["marble", "nonliving"]
-	# ["shark", "living"]
-	# ["knob", "nonliving"]
-	# ["lion", "living"]
+	["cloud", "nonliving"]
+	["goldfish", "living"]
+	["lizard", "living"]
+	["table", "nonliving"]
+	["marble", "nonliving"]
+	["shark", "living"]
+	["knob", "nonliving"]
+	["lion", "living"]
+]
+
+livingReal = [
+	["alligator", "living"]
+	["snowflake", "nonliving"]
+	["bicycle", "nonliving"]	
+	["mushroom", "living"]
+	["cloud", "nonliving"]
+	["goldfish", "living"]
+	["lizard", "living"]
+	["table", "nonliving"]
+	["marble", "nonliving"]
+	["shark", "living"]
+	["knob", "nonliving"]
+	["lion", "living"]
 ]
 
 sizePrac = [
@@ -21,96 +36,154 @@ sizePrac = [
 	["pebble", "smaller"]
 	["oak", "bigger"]
 	["bicycle", "bigger"]
-	# ["coat", "bigger"]
-	# ["shark", "bigger"]
-	# ["lizard", "size"]
-	# ["alligator", "size"]
-	# ["lion", "size"]
-	# ["snowflake", "size"]
-	# ["bicycle", "size"]
-	# ["shark", "size"]
-	# ["lizard", "size"]
+	["coat", "bigger"]
+	["shark", "bigger"]
+	["lizard", "smaller"]
+	["alligator", "bigger"]
+	["lion", "bigger"]
+	["snowflake", "smaller"]
+	["bicycle", "bigger"]
+	["shark", "bigger"]
+	["lizard", "smaller"]
+]
+
+sizeReal = [
+	["table", "bigger"]
+	["knob", "smaller"]
+	["pebble", "smaller"]
+	["oak", "bigger"]
+	["bicycle", "bigger"]
+	["coat", "bigger"]
+	["shark", "bigger"]
+	["lizard", "smaller"]
+	["alligator", "bigger"]
+	["lion", "bigger"]
+	["snowflake", "smaller"]
+	["bicycle", "bigger"]
+	["shark", "bigger"]
+	["lizard", "smaller"]
 ]
 
 mixedBlock = [
-	["sparrow", "size"]
-	["table", "living"]
-	["lion", "size"]
+	["sparrow", "smaller"]
+	["table", "nonliving"]
+	["lion", "biger"]
 	["sparrow", "living"]
-	["cloud", "living"]
-	["alligator", "size"]
-	["lizard", "size"]
-	["marble", "living"]
-	["table", "size"]
-	["pebble", "size"]
+	["cloud", "nonliving"]
+	["alligator", "bigger"]
+	["lizard", "smaller"]
+	["marble", "nonliving"]
+	["table", "bigger"]
+	["pebble", "smaller"]
 	["shark", "living"]
-	["coat", "living"]
+	["coat", "nonliving"]
 	["alligator", "living"]
-	["pebble", "size"]
+	["pebble", "smaller"]
 	["lion", "living"]
-	["snowflake", "living"]
+	["snowflake", "nonliving"]
 	["lizard", "living"]
 ]
 
-trialLength = 3500
-ITI = 1000
-IBI = 1000
+trialLength = 5000
+ITI = 350
+IBI = 2000
 
-instructions = ["In this test, you'll see a series of words, one at the time \n\n
+instructions = ["In this assesment, we're going to test your ability \nto quickly and accurately categorize words\n\n
+
+First, let's get familiar with the controls\n
+
+You'll be using the F and J keys with your index fingers\n\n
+At the bottom of the screen, we'll show you what each key does\n\n
+
+Press J to continue
+"
+
+"You're going to see a series of words, one at the time \n\n
 Above each word you'll see a symbol \n\n
 When the symbol is   #{String.fromCharCode(10084)}  decide if the word describes \nsomething that is, or could have ever been living\n
-\nWhen the symbol is   #{String.fromCharCode(10021)}  decide if the world describes\nsomething that is smaller or bigger than a soccer ball. \n\n", 
+\nWhen the symbol is   #{String.fromCharCode(10021)}  decide if the world describes\nsomething that is smaller or bigger than a soccer ball. \n\n",
 
-"\n\nIf you see a   #{String.fromCharCode(10084)}  , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
-\nsomething that is living or nonliving?",
 
-"\n\nIf you see a   #{String.fromCharCode(10021)}  , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
-\nsomething that is living or nonliving?",
+"\nThe symbol ( #{String.fromCharCode(10084)}  or #{String.fromCharCode(10021)} ) will appear right before the word does\n\n
+Try to use the time between when the symbol and word appear to\n
+prepare yourself to categorize the word according to the symbol. "
 
-"You'll use the 'F' and 'J' keys to respond\n
-Use your left and right index fingers\n\n
-When you see the  #{String.fromCharCode(10084)} icon\n
-Press  'F' for 'non-living'\n
-Press 'J' for 'living'\n\n
-When you see the  #{String.fromCharCode(10021)} icon\n
-Press  'F' for 'smaller than a soccer ball'\n
-Press 'J' for 'bigger than a soccer ball'",
+"\nPop quiz!\n\nIf you see a  #{String.fromCharCode(10084)} , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
+\nsomething that is living or nonliving?"
 
-"\n\nWhich key do you press for a item that is \n
-smaller than a soccer ball?",
+"\n\nAnd if you see a  #{String.fromCharCode(10021)} , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
+\nsomething that is living or nonliving?"
 
-"\n\nWhich key do you press for a item that \n
-is or could have ever been living?",
 
-"Okay now its time to practice!\n
-For now, we'll only decide if the words described are living or non-living\n\n
-NON-LIVING things are: \nsnowflake, pebble, marble, knob, bicycle, coat, table, and cloud. \n\n
-LIVING things are: \nsparrow, mushroom, lizard, goldfish, lion, shark, alligator, and oak. \n\n
-Please respond as fast and as accurately as you can!",
+"\n
+Right now, let's focus on when you see the #{String.fromCharCode(10084)}\n\n
+If the word describes something:\n\n
+Non-living, press F and \n
+Living, press J\n\n
+"
 
-"Now we're going to practice deciding if words described are\n smaller or bigger than a soccer ball\n\n
-SMALL things are: \nsnowflake, pebble, marble, knob, sparrow, mushroom, lizard, and goldfish. \n\n
+"\n\n\nIf you see a #{String.fromCharCode(10084)}, which key do you press for something\n
+that is or could have ever been living?"
+
+"It's time to practice!\n\n
+
+So we're clear, \n
+NON-LIVING things are: \nsnowflake, pebble, marble, knob, bicycle, coat, table, and cloud \n\n
+LIVING things are: \nsparrow, mushroom, lizard, goldfish, lion, shark, alligator, and oak \n\n"
+
+"\nWe're going to give you feedback on how you're doing\n\n
+If you correctly categorize a word, you'll see a green circle\n
+If you get it wrong or take too long, you'll see a red circle\n\n
+Soon after, the next symbol and word will appear\n\n
+
+Try to respond as quickly as possible without making mistakes!"
+
+"Great. We're done with this practice round\n\n
+
+Now you're going to categorize 34 more words\n
+These will be 'real', not practice trials\n\n
+Remember to respond as quickly as you can \nwithout making mistakes
+"
+
+"Great, you're done! \n
+Let's switch gears for a moment\n\n
+Now you're going to decide if things are\nsmaller or bigger than a soccer ball\n\n
+
+If the word describes something\n
+SMALL, press F \n
+for something BIG, press J"
+
+"\n\n\nIf you see a #{String.fromCharCode(10021)}, which key do you press for something\n
+that is smaller than a soccer ball?"
+
+"Let's practice!\n\n
+
+SMALL things are: \nsnowflake, pebble, marble, knob, sparrow, \nmushroom, lizard, and goldfish. \n\n
 BIG things are: \nbicycle, coat, table, cloud, lion, shark, alligator, and oak. \n\n
-Please respond as fast and as accurately as you can!"]
+Remember to respond quickly and accurately!
+"
 
-## Change to dicionary?
-living = new Image();
-living.src = "img/living.png"
+"Great! We're done with this practice round.\n\n
 
-nonliving = new Image();
-nonliving.src = "img/non_living.png"
+Now you're going to categorize 34 more words\n
+These will be 'real' SIZE trials, not practice trials\n\n
+Remember to respond as quickly as you can \nwithout making mistakes
+"
 
-living_col = new Image();
-living_col.src = "img/living_blue.png"
+"Now it's time to make it a bit more difficult\n\n
+In this last phase, we're going to practice making both judgments\n\n
 
-nonliving_col = new Image();
-nonliving_col.src = "img/non_living_blue.png"
+Respond according to the symbol above the word. \nIt may be different for every word.\n\n
+Remember to prepare to categorize the word\nas soon as the symbol appears"
+"Great, you're done with the practice!\n\n
+Are you ready for the final round?\n\n
 
-soccer = new Image();
-soccer.src = "img/soccer.png"
+You will categorize 34 more words based on the symbol\n\n
+Remember to prepare to categorize the word\nas soon as the symbol appears and \n
+respond quickly without making mistakes"
+]
 
-soccer_col = new Image();
-soccer_col.src = "img/soccer_blue.png"
+
 
 
 # Set up canvas
@@ -131,11 +204,14 @@ mean = (numericArray) ->
 
 # Clears canvas
 clear_canvas = ->
-	ctx.clearRect(0, 0, canvas.width, canvas.height)
+	ctx.clearRect(0, 0, canvas.width, canvas.height)# 
 
 # Writes multline text onto the canvas, and by default clears
-multilineText = (txt, x, y, font, lineheight=20, clear=true) ->
+multilineText = (txt, x, y, font, lineheight=30, clear=true, fillColor='black') ->
 	clear_canvas() if clear
+
+
+	ctx.fillStyle = fillColor
 
 	ctx.font = font
 
@@ -153,11 +229,43 @@ multilineText = (txt, x, y, font, lineheight=20, clear=true) ->
 	  ctx.fillText lines[i], x, y + (i * lineheight)
 	  i++
 
+drawCircle = (x, y, radius, fillColor=null, edgecolor='black', behind=true) ->
+	ctx.arc(x, y, radius, 0, 2 * Math.PI)
+
+	if behind
+		ctx.globalCompositeOperation="destination-over"
+	else
+		ctx.globalCompositeOperation="source-over"
+		
+	if edgecolor?
+		ctx.lineWidth = 4
+		ctx.strokeStyle = edgecolor
+		ctx.stroke()
+
+	if fillColor?
+		ctx.fillStyle = fillColor
+		ctx.fill()
+
+	ctx.globalCompositeOperation="source-over"
+
+keyText = (text, key) ->
+	if key is 'left'
+		ctx.drawImage(fkey, 5, canvas.height-100, 50, 50)
+		multilineText(text, 68, canvas.height-70,  "22px Arial", lineheight=20, clear=false)
+	else
+		ctx.drawImage(jkey, 420, canvas.height-100, 50, 50)
+		multilineText(text, 483, canvas.height-70, "22px Arial", lineheight=20, clear=false)
+
 class Session
 	constructor: (@blocks) ->
 		@blockNumber = 0
 		@max_blocks = @blocks.length
-		@nextBlock()
+		@imgs_loaded = 0
+		
+	start: ->
+		@imgs_loaded++
+		if @imgs_loaded is 2
+			@nextBlock()
 
 	nextBlock: ->
 		@currBlock = @blocks[@blockNumber]
@@ -181,50 +289,39 @@ class Session
 			@nextBlock()
 		else
 			@prevBlock()
-
-	buttonClick: (button) ->
-		@currBlock.buttonClick(button)
 	
 	endSession: ->
 		# Show finished message
 		$('#done').modal('show')	
 
+
 class Instruction
-	constructor: (@message, @left_button = "Back", @right_button = "Okay", @corrResp = null) ->
+	constructor: (@message, @left_key = null, @right_key = "Continue", @corrResp = null) ->
 
 	start: (@exitTrial) ->
-		multilineText(@message, 10, 30, "25px Arial", 30)
+		multilineText(@message, 10, 30, "25px Arial", 33)
+		
+		if @left_key?
+			keyText(@left_key, 'left')
 
-		if @left_button isnt false
-			$('#left').css({'visibility' : 'visible'})
-		if @right_button?
-			$('#right').css({'visibility' : 'visible'})
+		## Show key picture and text next to it
+		keyText(@right_key, 'right')
 
-		$('#left').html(@left_button)
-		$('#right').html(@right_button)
-
-	buttonClick: (button) ->
-
+	keyPress: (key) ->
 		if @corrResp?
-			if @corrResp is button
-			## Change buttons to be "Okay continue"
+			if @corrResp is key
 				$('#correct').modal('show')
-				@clearButtons()
-				setTimeout (=> $('#correct').modal('hide')), 1750
-				setTimeout (=> @exitTrial()), 1750
+				setTimeout (=> $('#correct').modal('hide')), 1250
+				setTimeout (=> @exitTrial()), 1250
 			else
 			## Show incorrect message
 				$('#error').modal('show')
+				setTimeout (=> $('#error').modal('hide')), 1250
 		else
-			@clearButtons()
-			if button is 'left'
+			if key is 'f'
 				@exitTrial false
-			else if button is 'right'
+			else if key is 'j'
 				@exitTrial()
-
-	clearButtons: ->
-		$('#left').css({'visibility' : 'hidden'})
-		$('#right').css({'visibility' : 'hidden'})
 
 class Block
 	constructor: (@condition, @message, @trials) ->
@@ -235,13 +332,15 @@ class Block
 
 	start: (@exitBlock) ->
 		# Show ready message
-		multilineText(@message, 10, 75, "25px Arial", 75)
+		multilineText(@message, "center", "center", "35px Arial", 75)
 
 		setTimeout (=> @nextTrial()), IBI
 
 	nextTrial: ->
 		@currTrial = @trials[@trialNumber]
+		console.log(@currTrial)
 		if @trialNumber >= @max_trials
+			@trialNumber++
 			@endBlock()
 		else
 			@trialNumber++
@@ -258,6 +357,9 @@ class Block
 		@data.push(trialData)
 		@nextTrial()
 
+	keyPress: (key) ->
+		@currTrial.logResponse(key)
+
 class PracticeBlock extends Block
 
 	endBlock: ->
@@ -265,37 +367,41 @@ class PracticeBlock extends Block
 
 	feedback: ->
 		# get accuracy from data
-		accs = mean([n[2] for n in @data][0])
+		accs = ((if n[2] == 'NA' then 0 else n[2]) for n in @data)
 
-		multilineText("You got #{accs*100.toString()}% of trials correct", 10, 30, "30px Arial")
+		accs = mean(accs)
+
+		multilineText("You got #{Math.round(accs*100.toString(), )}% of trials correct", 10, 60, "30px Arial")
 
 		if accs < 0.75
-			multilineText("You need to get at least 75% right to continue", 10, 100, "25px Arial", 20, false)
+			multilineText("You need to get at least 75% right to continue", 10, 130, "25px Arial", 20, false)
 			
-			$('#right').html("Try again")
+			keyText("Try again", 'left')
 			
 			@done = false
 		else
-			multilineText("Good job, let's continue", 10, 100, "25px Arial", 20, false)
-			$('#right').html("Okay")
+			multilineText("Good job, let's continue", 10, 130, "25px Arial", 20, false)
+			keyText("Okay, continue", 'right')
 
 			@done = true
 
-		$('#right').css({'visibility' : 'visible'})
+	keyPress: (key) ->
+		if @trialNumber > @max_trials
+			if @done
+				if key is 'j'
+					@exitBlock()
+			else if key is 'f'
+				#Dont forget to log trials -add
+				@restartBlock()
 
-	buttonClick: ->
-		$('#right').css({'visibility' : 'hidden'})
-
-		if @done
-			@exitBlock()
-		else
-			#Dont forget to log trials -add
-			@restartBlock()
+		else super key
 
 	restartBlock: ->
 		@trialNumber = 0
 		@data = []
 		@nextTrial()
+
+		(trial.reset() for trial in @trials)
 
 class RTFeedbackBlock extends Block
 
@@ -305,7 +411,7 @@ class RTFeedbackBlock extends Block
 
 	feedback: ->
 		# Exclude NAs
-		goodRTs = [n[0] for n in @data][0]
+		goodRTs = n[0] for n in @data
 		goodRTs.splice(goodRTs.indexOf('NA'), 1) while goodRTs.indexOf('NA') > -1
 
 		multilineText("Your average reaction time was: #{mean(goodRTs).toString()}ms", 10, 30, "20px Arial")
@@ -314,20 +420,33 @@ class Trial
 	constructor: (@item, @corrResp) ->
 		@rt = 'NA'
 		@resp = 'NA'
-		@acc = 0
+		@acc = 'NA'
+		@flag = true
 
-	show: (endTrial)  ->
+	reset: ->
+		@rt = 'NA'
+		@resp = 'NA'
+		@acc = 'NA'
+		@flag = false
+
+	show: (@exitTrial)  ->
+		clear_canvas()
+
 		# Set upper text to judgment type
 		multilineText(@processJudgment(@corrResp), "center", canvas.height/2 - 75, "40px Arial")
-		# Set middle center text to stimuli
-		multilineText(@item, "center", "center", "35px Arial", 20, false)
 
-		# Log trial start time
-		@startTime = (new Date).getTime()
-		setTimeout (=> clear_canvas()), trialLength - ITI
+		setTimeout (=>
+			@flag = false
 
-		## End trial 
-		setTimeout (=> endTrial([@rt, @resp, @acc])), trialLength
+			# Set middle center text to stimuli
+			multilineText(@item, "center", "center", "35px Arial", 20, false)
+
+			# Log trial start time
+			@startTime = (new Date).getTime()
+			setTimeout (=> @endTrial()), trialLength
+
+			), 350
+
 
 	processJudgment: (judgment) ->
 		if judgment is "living" or judgment is "nonliving"
@@ -337,85 +456,88 @@ class Trial
 
 		symbol
 
-	logResponse: (resp) ->
-		@rt = (new Date).getTime() - @startTime
-		@resp = resp
+	endTrial: ->
+		if @flag is false
+			@flag = true
+			if @acc is 'NA'
+				multilineText("You took too long!", "center", canvas.height/2+140, "30px Arial", lineheight = 20, clear=false)
+				drawCircle(canvas.width/2, canvas.height/2-40, 100, fillColor = 'lightyellow')
+			else
+				drawCircle(canvas.width/2, canvas.height/2-40, 100, fillColor = 'lightyellow')
 
-		if resp is "f"
-			if @corrResp is "nonliving" or @corrResp is "smaller"
-				@acc = 1
-			else
-				@acc = 0
-		else if resp is "j"
-			if @corrResp is "living" or @corrResp is "bigger"
-				@acc = 1
-			else
-				@acc = 0
+			setTimeout (=> @exitTrial([@rt, @resp, @acc])), ITI
+
+	logResponse: (resp) ->
+		if @flag is false
+			@rt = (new Date).getTime() - @startTime
+			@resp = resp
+
+			if resp is "f"
+				if @corrResp is "nonliving" or @corrResp is "smaller"
+					@acc = 1
+				else
+					@acc = 0
+			else if resp is "j"
+				if @corrResp is "living" or @corrResp is "bigger"
+					@acc = 1
+				else
+					@acc = 0
+
+			@endTrial()
 
 class FeedbackTrial extends Trial
-	constructor: (@item, @corrResp) ->
-		if @corrResp is "living" or @corrResp is "nonliving"
-			@left = nonliving
-			@left_selected = nonliving_col
-			@left_size = 75
+	endTrial: ->
+		if @flag is false
+			@flag = true
+			switch @acc
+				when 0
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')
+				when 1
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#66FF33')
+				when 'NA'
+					multilineText("You took too long!", "center", canvas.height/2+140, "30px Arial", lineheight = 20, clear=false)
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')
 
-			@right = living
-			@right_selected = living_col
-			@right_size = 75
-		else
-			@left = soccer
-			@left_selected = soccer_col
-			@left_size = 60
-
-			@right = soccer
-			@right_selected = soccer_col
-			@right_size = 80
-
-		super @item, @corrResp
-
-	show: (endTrial) ->
-		super endTrial
-		ctx.drawImage(@left, 10, canvas.height/2-100, @left_size, @left_size)
-		ctx.drawImage(@right, canvas.width - 100, canvas.height/2-85, @right_size, @right_size)
-
-
-	logResponse: (resp) ->
-		super resp
-
-		if resp is "f" ##Check for caps
-			ctx.drawImage(@left_selected, 10, canvas.height/2-100,  @left_size, @left_size)
-		else if resp is "j"
-			ctx.drawImage(@right_selected, canvas.width - 100, canvas.height/2-85, @right_size, @right_size)
+			setTimeout (=> @exitTrial([@rt, @resp, @acc])), ITI
+			
 		
 
 blocks = [
-	new Instruction instructions[0], false
-	new Instruction instructions[1], "Bigger/smaller<br> than soccer ball", "Living/non-living", "right"
-	new Instruction instructions[2], "Bigger/smaller<br> than soccer ball", "Living/non-living", "left"
-	new Instruction instructions[3]
-	new Instruction instructions[4], "F", "J", "left"
-	new Instruction instructions[5], "F", "J", "right"
-	new Instruction instructions[6], false, "Let's practice"
-	new PracticeBlock "livingPrac", "Get ready...\n10 words coming up", (new FeedbackTrial(n[0], n[1]) for n in livingPrac)
-	new Instruction instructions[7], false, "Let's practice"
-	new PracticeBlock "sizePrac", "Get ready...\n10 words coming up", (new FeedbackTrial(n[0], n[1]) for n in sizePrac)
-	# ["livingOnly", "Get ready to begin... Only living or non-living", livingPrac]
-	# ["sizeOnly", "Get ready for mre trials... Only size trials", sizePrac]
-	# ["mixed", "Get ready for more trials... this is a mixed block", mixedBlock]
+	new Instruction instructions[0]
+	new Instruction instructions[1], "Go back"
+	new Instruction instructions[2], "Go back"
+	new Instruction instructions[3], "Bigger/smaller than soccer ball", "Living/non-living", "j"
+	new Instruction instructions[4], "Bigger/smaller than soccer ball", "Living/non-living", "f"
+	new Instruction instructions[5], "Go back"
+	new Instruction instructions[6], " ", " ", "j"
+	new Instruction instructions[7]		
+	new Instruction instructions[8], "Go back", "Start practice!"
+	new PracticeBlock "livingPrac", "Get ready for 12 trials!", (new FeedbackTrial(n[0], n[1]) for n in livingPrac)
+	new Instruction instructions[9], null, "Continue"
+	new Block "livingReal", "Get ready for 34 trials!", (new Trial(n[0], n[1]) for n in livingReal)
+	new Instruction instructions[10], null
+	new Instruction instructions[11], " ", " ", "f"
+	new Instruction instructions[12], "Go back", "Start practice!"
+	new PracticeBlock "sizePrac", "Get ready for 12 trials!", (new FeedbackTrial(n[0], n[1]) for n in sizePrac)
+	new Instruction instructions[13], null, "Start!"
+	new Block "sizeReal", "Get ready for 34 trials!", (new Trial(n[0], n[1]) for n in sizeReal)
+	new Instruction instructions[14], null, "Start practice!"
+	new PracticeBlock "mixedPrac", "Get ready for 12 trials!", (new FeedbackTrial(n[0], n[1]) for n in mixedBlock)
+	new Instruction instructions[15], null, "Start!"
+	new Block "mixedPrac", "Get ready for 34 trials!", (new Trial(n[0], n[1]) for n in mixedBlock)
 ]
 
-
 jQuery ->
-	currSession = new Session(blocks)
-
-	$("#right").click ->
-		currSession.buttonClick('right')
-
-	$("#left").click ->
-		currSession.buttonClick('left')
-
-	$("#continue").click ->
-		currSession.buttonClick('continue')
-
 	$(document).keypress (event) ->
-		currSession.currBlock.currTrial.logResponse(String.fromCharCode(event.keyCode))
+		currSession.currBlock.keyPress(String.fromCharCode(event.keyCode).toLowerCase())
+
+currSession = new Session(blocks)
+
+fkey = new Image()
+jkey = new Image()
+
+fkey.onload = ( -> currSession.start())
+jkey.onload = ( -> currSession.start())
+
+fkey.src = "img/f_key.png"
+jkey.src = "img/j_key.png"

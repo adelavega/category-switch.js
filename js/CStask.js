@@ -488,8 +488,12 @@
         _this = this;
       if (this.flag === false) {
         this.flag = true;
+        console.log(this.acc);
         switch (this.acc) {
-          case 0 || 'NA':
+          case 0:
+            drawCircle(canvas.width / 2, canvas.height / 2 - 40, 100, '#FF4719');
+            break;
+          case 'NA':
             drawCircle(canvas.width / 2, canvas.height / 2 - 40, 100, '#FF4719');
             break;
           case 1:
@@ -534,7 +538,7 @@
             clear_canvas();
             break;
           case 'other':
-            multilineText("Only press the F or J keys!", "center", canvas.height / 2 + 140, "30px Arial", lineheight = 20, clear = false);
+            multilineText("Use only the F or J keys!", "center", canvas.height / 2 + 140, "30px Arial", lineheight = 20, clear = false);
             drawCircle(canvas.width / 2, canvas.height / 2 - 40, 100, '#FF4719');
         }
         return setTimeout((function() {

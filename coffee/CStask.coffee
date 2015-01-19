@@ -6,7 +6,7 @@ trialLength = 5000
 ITI = 350
 IBI = 2000
 
-instructions = ["In this assesment, we're going to test your ability \nto quickly and accurately categorize words\n\n
+instructions = ["In this assessment, we're going to test your ability \nto quickly and accurately categorize words\n\n
 
 First, let's get familiar with the controls\n
 
@@ -19,7 +19,7 @@ Press J to continue
 "You're going to see a series of words, one at the time \n\n
 Above each word you'll see a symbol \n\n
 When the symbol is   #{String.fromCharCode(10084)}  decide if the word describes \nsomething that is, or could have ever been living\n
-\nWhen the symbol is   #{String.fromCharCode(10021)}  decide if the world describes\nsomething that is smaller or bigger than a soccer ball. \n\n",
+\nWhen the symbol is   #{String.fromCharCode(10021)}  decide if the word describes\nsomething that is smaller or bigger than a soccer ball. \n\n",
 
 
 "\nThe symbol ( #{String.fromCharCode(10084)}  or #{String.fromCharCode(10021)} ) will appear right before the word does\n\n
@@ -51,7 +51,7 @@ LIVING things are: \nsparrow, mushroom, lizard, goldfish, lion, shark, alligator
 
 "\nWe're going to give you feedback on how you're doing\n\n
 If you incorrectly categorize a word, you'll see a red circle\n
-If you get it right, the word and symbol will simply disapear\n\n
+If you get it right, the word and symbol will simply disappear\n\n
 Soon after, the next symbol and word will appear\n\n"
 
 "\nAs you go along, remember to respond as quickly as you can,\n 
@@ -419,8 +419,12 @@ class FeedbackTrial extends Trial
 	endTrial: ->
 		if @flag is false
 			@flag = true
+			console.log(@acc)
 			switch @acc
-				when 0 or 'NA'
+				when 0
+					# clear_canvas()
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')	
+				when 'NA'
 					# clear_canvas()
 					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')
 				when 1
@@ -448,7 +452,7 @@ class PracFeedbackTrial extends Trial
 					clear_canvas()
 				when 'other'
 					# clear_canvas()
-					multilineText("Only press the F or J keys!", "center", canvas.height/2+140, "30px Arial", lineheight = 20, clear=false)
+					multilineText("Use only the F or J keys!", "center", canvas.height/2+140, "30px Arial", lineheight = 20, clear=false)
 					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')
 
 			setTimeout (=> @exitTrial([@rt, @resp, @acc])), ITI*2

@@ -1,47 +1,39 @@
 # Category-switch task
 
+psiTurk = PsiTurk(uniqueId, adServerLoc)
+
 all_stim = {"living_real": [["marble", "nonliv"], ["oak", "living"], ["lizard", "living"], ["coat", "nonliv"], ["sparrow", "living"], ["goldfish", "living"], ["lion", "living"], ["alligator", "living"], ["pebble", "nonliv"], ["shark", "living"], ["knob", "nonliv"], ["table", "nonliv"], ["shark", "living"], ["bicycle", "nonliv"], ["cloud", "nonliv"], ["marble", "nonliv"], ["cloud", "nonliv"], ["alligator", "living"], ["sparrow", "living"], ["lizard", "living"], ["snowflake", "nonliv"], ["mushroom", "living"], ["lion", "living"], ["pebble", "nonliv"], ["bicycle", "nonliv"], ["table", "nonliv"], ["oak", "living"], ["mushroom", "living"], ["knob", "nonliv"], ["marble", "nonliv"], ["coat", "nonliv"], ["goldfish", "living"], ["snowflake", "nonliv"], ["oak", "living"]], "living_prac": [["alligator", "living"], ["snowflake", "nonliv"], ["bicycle", "nonliv"], ["mushroom", "living"], ["cloud", "nonliv"], ["goldfish", "living"], ["lizard", "living"], ["table", "nonliv"], ["marble", "nonliv"], ["shark", "living"], ["knob", "nonliv"], ["lion", "living"]], "mixed_prac": [["marble", "nonliv"], ["table", "nonliv"], ["alligator", "big"], ["sparrow", "small"], ["snowflake", "small"], ["goldfish", "small"], ["mushroom", "living"], ["cloud", "nonliv"], ["knob", "small"], ["oak", "living"], ["marble", "small"], ["bicycle", "nonliv"], ["lizard", "living"], ["knob", "nonliv"], ["lizard", "small"], ["bicycle", "big"], ["pebble", "nonliv"], ["shark", "big"], ["sparrow", "living"], ["lion", "living"], ["goldfish", "living"], ["lion", "big"], ["table", "big"], ["coat", "big"]], "size_prac": [["pebble", "small"], ["bicycle", "big"], ["sparrow", "small"], ["coat", "big"], ["lion", "big"], ["lizard", "small"], ["snowflake", "small"], ["shark", "big"], ["goldfish", "small"], ["knob", "small"], ["cloud", "big"], ["table", "big"]], "size_real": [["table", "big"], ["knob", "small"], ["pebble", "small"], ["oak", "big"], ["bicycle", "big"], ["coat", "big"], ["shark", "big"], ["lizard", "small"], ["alligator", "big"], ["lion", "big"], ["snowflake", "small"], ["bicycle", "big"], ["shark", "big"], ["lizard", "small"], ["table", "big"], ["mushroom", "small"], ["marble", "small"], ["cloud", "big"], ["oak", "big"], ["knob", "small"], ["pebble", "small"], ["sparrow", "small"], ["goldfish", "small"], ["cloud", "big"], ["mushroom", "small"], ["snowflake", "small"], ["goldfish", "small"], ["knob", "small"], ["table", "big"], ["alligator", "big"], ["sparrow", "small"], ["marble", "small"], ["lion", "big"], ["coat", "big"]], "mixed_real_1": [["marble", "nonliv"], ["sparrow", "living"], ["table", "big"], ["lion", "big"], ["sparrow", "small"], ["table", "nonliv"], ["lion", "big"], ["sparrow", "living"], ["cloud", "nonliv"], ["alligator", "big"], ["lizard", "small"], ["marble", "nonliv"], ["table", "big"], ["pebble", "small"], ["shark", "living"], ["coat", "nonliv"], ["alligator", "living"], ["pebble", "small"], ["lion", "living"], ["snowflake", "nonliv"], ["lizard", "living"], ["marble", "small"], ["bicycle", "big"], ["shark", "big"], ["alligator", "living"], ["lizard", "small"], ["lion", "big"], ["goldfish", "small"], ["alligator", "big"], ["pebble", "nonliv"], ["shark", "big"], ["snowflake", "nonliv"], ["mushroom", "living"], ["snowflake", "small"], ["knob", "small"], ["goldfish", "living"], ["cloud", "big"], ["mushroom", "small"], ["bicycle", "nonliv"], ["shark", "living"], ["knob", "small"], ["marble", "small"], ["oak", "big"], ["snowflake", "small"], ["coat", "big"], ["knob", "nonliv"], ["sparrow", "living"], ["lion", "living"], ["coat", "big"], ["mushroom", "living"], ["table", "nonliv"], ["oak", "living"], ["marble", "nonliv"], ["knob", "nonliv"], ["oak", "big"], ["lizard", "living"], ["mushroom", "small"], ["oak", "living"], ["goldfish", "living"], ["bicycle", "nonliv"], ["sparrow", "small"], ["cloud", "nonliv"], ["pebble", "nonliv"], ["goldfish", "small"], ["table", "big"], ["coat", "nonliv"], ["bicycle", "big"], ["cloud", "big"]], "mixed_real_2": [["oak", "big"], ["coat", "big"], ["goldfish", "living"], ["knob", "nonliv"], ["marble", "nonliv"], ["lizard", "small"], ["goldfish", "small"], ["cloud", "nonliv"], ["oak", "big"], ["table", "nonliv"], ["pebble", "nonliv"], ["coat", "big"], ["shark", "living"], ["table", "nonliv"], ["goldfish", "small"], ["coat", "big"], ["lizard", "small"], ["knob", "nonliv"], ["coat", "nonliv"], ["snowflake", "small"], ["marble", "nonliv"], ["mushroom", "small"], ["table", "big"], ["cloud", "big"], ["alligator", "big"], ["lizard", "living"], ["cloud", "nonliv"], ["sparrow", "small"], ["mushroom", "living"], ["alligator", "living"], ["table", "big"], ["goldfish", "living"], ["cloud", "big"], ["lion", "big"], ["snowflake", "nonliv"], ["shark", "living"], ["sparrow", "living"], ["marble", "small"], ["pebble", "nonliv"], ["knob", "nonliv"], ["alligator", "big"], ["shark", "big"], ["pebble", "small"], ["snowflake", "small"], ["bicycle", "big"], ["lion", "living"], ["oak", "living"], ["goldfish", "living"], ["shark", "big"], ["sparrow", "small"], ["oak", "living"], ["mushroom", "living"], ["lizard", "living"], ["bicycle", "big"], ["marble", "small"], ["alligator", "living"], ["snowflake", "nonliv"], ["lion", "living"], ["pebble", "small"], ["oak", "big"], ["coat", "nonliv"], ["bicycle", "nonliv"], ["knob", "small"], ["sparrow", "living"], ["lion", "big"], ["mushroom", "small"], ["knob", "small"], ["bicycle", "nonliv"]]}
 
-trialLength = 5000
-ITI = 350
-IBI = 2000
+instructions = ["In this task, we're going to test your ability \nto quickly and accurately categorize words\n\n\n
+            This test requires 30 minutes of undivided attention\n\n\n
 
-instructions = ["In this assessment, we're going to test your ability \nto quickly and accurately categorize words\n\n
-
-First, let's get familiar with the controls\n
-
-You'll be using the F and J keys with your index fingers\n\n
-At the bottom of the screen, we'll show you what each key does\n\n
-
-Press J to continue
+Press          to continue or try again later
 "
 
-"You're going to see a series of words, one at the time \n\n
-Above each word you'll see a symbol \n\n
-When the symbol is   #{String.fromCharCode(10084)}  decide if the word describes \nsomething that is, or could have ever been living\n
-\nWhen the symbol is   #{String.fromCharCode(10021)}  decide if the word describes\nsomething that is smaller or bigger than a soccer ball. \n\n",
+"You'll see a series of words, one at the time \n\n
+Above each word you'll see a symbol, like this: \n\n\n
+
+                                   #{String.fromCharCode(10084)}\n
+                                house"
+
+"If the symbol is   #{String.fromCharCode(10084)}  decide if the word is \nsomething living or non-living\n
+\nIf the symbol is   #{String.fromCharCode(10021)}  decide if the word is\nsmaller or bigger than a soccer ball\n\n",
 
 
-"\nThe symbol ( #{String.fromCharCode(10084)}  or #{String.fromCharCode(10021)} ) will appear right before the word does\n\n
-Try to use the time between when the symbol and word appear to\n
-prepare yourself to categorize the word according to the symbol. "
+"\nPop quiz!\n\n\nIf you see a  #{String.fromCharCode(10084)} , what do you decide about the word shown?"
 
-"\nPop quiz!\n\nIf you see a  #{String.fromCharCode(10084)} , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
-\nsomething that is living or nonliving?"
-
-"\n\nAnd if you see a  #{String.fromCharCode(10021)} , do you decide if the word shown describes:\n\nsomething smaller or bigger than a soccer ball or\n
-\nsomething that is living or nonliving?"
+"\n\n\nAnd if you see a  #{String.fromCharCode(10021)} ?\n\nWhat do you decide about the word shown?"
 
 
-"\n
-Right now, let's focus on when you see the #{String.fromCharCode(10084)}\n\n
-If the word describes something:\n\n
-Non-living, press F and \n
-Living, press J\n\n
+"
+For now, let's focus on when you see a  #{String.fromCharCode(10084)}\n\n
+If the word describes something...\n\n\n
+Non-living, press \n\n
+Living, press \n\n
 "
 
-"\n\n\nIf you see a #{String.fromCharCode(10084)}, which key do you press for something\n
-that is or could have ever been living?"
+"\n\n\nIf you see a  #{String.fromCharCode(10084)}\n\n
+what key do you press if the word is something living?"
 
 "It's time to practice!\n\n
 
@@ -49,34 +41,33 @@ For this part, \n
 NON-LIVING things are: \nsnowflake, pebble, marble, knob, bicycle, coat, table, and cloud \n\n
 LIVING things are: \nsparrow, mushroom, lizard, goldfish, lion, shark, alligator, and oak \n\n"
 
-"\nWe're going to give you feedback on how you're doing\n\n
-If you incorrectly categorize a word, you'll see a red circle\n
-If you get it right, the word and symbol will simply disappear\n\n
-Soon after, the next symbol and word will appear\n\n"
+"Remember, respond as quickly as you can\n
+without making mistakes\n\n
 
-"\nAs you go along, remember to respond as quickly as you can,\n 
-without making ANY mistakes\n
+If you make a mistake, you'll see a red circle\n
+
 The faster you can go while staying accurate, the better!\n\n
 
-Ready to begin?"
+
+\n
+Ready to try it?"
 
 "Great. We're done with this practice round\n\n
 
 Now you're going to categorize 34 more words\n
-These will be 'real', not practice trials\n\n
+These will be 'real', not practice words\n\n
 Remember to respond as quickly as you can \nwithout making mistakes
 "
 
-"Great, you're done! \n
-Let's switch gears for a moment\n\n
-Now you're going to decide if things are\nsmaller or bigger than a soccer ball\n\n
+"Great, you're done! Now, let's switch gears...\n\n
+For now, you'll decide if things are\nsmaller or bigger than a soccer ball\n\n
 
-If the word describes something\n
-SMALL, press F \n
-for something BIG, press J"
+If the word describes something...\n\n
+Small, press  \n\n
+Big, press "
 
 "\n\n\nIf you see a #{String.fromCharCode(10021)}, which key do you press for something\n
-that is smaller than a soccer ball?"
+smaller than a soccer ball?"
 
 "Let's practice!\n\n
 
@@ -85,25 +76,31 @@ BIG things are: \nbicycle, coat, table, cloud, lion, shark, alligator, and oak. 
 Remember to respond quickly and accurately!
 "
 
-"Great! We're done with this practice round.\n\n
+"Great! We're done with this practice round\n\n
 
 Now you're going to categorize 34 more words\n
-These will be 'real' SIZE trials, not practice trials\n\n
+These will be 'real', not practice words\n\n
 Remember to respond as quickly as you can \nwithout making mistakes
 "
 
-"Now it's time to make it a bit more difficult\n\n
-In this last phase, we're going to practice making both judgments\n\n
+"Now we're going to make it a bit more difficult\n\n
+In this last part, you'll have to switch between both judgments\n\n
 
 Respond according to the symbol above the word. \nIt may be different for every word.\n\n
-Remember to respond as quickly as you can without making mistakes"
+Remember to respond quickly without making mistakes"
 "Great, you're done with the practice!\n\n
-Are you ready for the final round?\n\n
 
-You will categorize 68 more words based on the symbol\n\n
-Remember to respond as quickly as you can without making mistakes"
+Now you're going to categorize 68 more words\n
+These will be 'real', not practice words\n\n
+Remember to respond quickly without making mistakes\n\n
+Are you ready?"
 ]
 
+trialLength = 5000
+ITI = 350
+IBI = 2000
+
+red = '#FF6C47'
 
 # Set up canvas
 c = document.getElementById("canvas")
@@ -111,9 +108,10 @@ ctx = c.getContext("2d")
 width = canvas.width
 height = canvas.height
 
-data = []
+# globalData = []
 saveData = (newdata) ->
-	data.push([newdata])
+	# globalData.push([newdata])
+	psiturk.recordTrialData(newdata)
 
 mean = (numericArray) ->
 	sum = numericArray.reduce((a, b) -> a + b)
@@ -125,13 +123,12 @@ mean = (numericArray) ->
 clear_canvas = ->
 	ctx.clearRect(0, 0, canvas.width, canvas.height)# 
 
+
 # Writes multline text onto the canvas, and by default clears
 multilineText = (txt, x, y, font, lineheight=30, clear=true, fillColor='black') ->
 	clear_canvas() if clear
 
-
 	ctx.fillStyle = fillColor
-
 	ctx.font = font
 
 	if x is "center"
@@ -167,16 +164,24 @@ drawCircle = (x, y, radius, fillColor=null, edgecolor='black', behind=true) ->
 
 	ctx.globalCompositeOperation="source-over"
 
-keyText = (text, key) ->
+hideButtons = ->
+	$("#leftButton").hide()
+	$("#rightButton").hide()
+
+
+keyText = (text, key, color) ->
 	if key is 'left'
-		ctx.drawImage(fkey, 5, canvas.height-100, 50, 50)
-		multilineText(text, 68, canvas.height-70,  "22px Arial", lineheight=20, clear=false)
+		$("#leftText").html(text)
+		$("#leftButton").show()
+		$("#leftButton").css('background-color',color)
 	else
-		ctx.drawImage(jkey, 420, canvas.height-100, 50, 50)
-		multilineText(text, 483, canvas.height-70, "22px Arial", lineheight=20, clear=false)
+		$("#rightText").html(text)
+		$("#rightButton").show()
+		$("#rightButton").css('background-color',color)
 
 class Session
 	constructor: (@blocks) ->
+		hideButtons()
 		@blockNumber = 0
 		@max_blocks = @blocks.length
 		@imgs_loaded = 0
@@ -211,42 +216,74 @@ class Session
 	
 	endSession: ->
 		# Show finished message
-		$('#done').modal('show')	
+		psiturk.saveData()
+		# $('#done').modal('show')
+		psiturk.completeHIT()
 
 	keyPress: (e) ->
 		code = e.charCode || e.keyCode
 		input = String.fromCharCode(code).toLowerCase()
+
+		if input == "j"
+			$('rightButton').click()
 		
 		@currBlock.keyPress input
 
-
 class Instruction
-	constructor: (@message, @left_key = null, @right_key = "Continue", @corrResp = null) ->
+	constructor: (@message, @left_key = null, @right_key = "Continue", @corrResp = null, @left_color = 'white', @right_color = 'white') ->
 
 	start: (@exitTrial) ->
+		@startTime = (new Date).getTime()
 		multilineText(@message, 10, 30, "25px Arial", 33)
 		
+		hideButtons()
 		if @left_key?
-			keyText(@left_key, 'left')
+			keyText(@left_key, 'left', @left_color)
 
 		## Show key picture and text next to it
-		keyText(@right_key, 'right')
+		keyText(@right_key, 'right', @right_color)
 
 	keyPress: (key) ->
+		rt = (new Date).getTime() - @startTime
+
 		if @corrResp?
 			if @corrResp is key
 				$('#correct').modal('show')
 				setTimeout (=> $('#correct').modal('hide')), 1250
 				setTimeout (=> @exitTrial()), 1250
+				acc = 1
 			else
 			## Show incorrect message
 				$('#error').modal('show')
 				setTimeout (=> $('#error').modal('hide')), 1250
+				acc = 0
 		else
 			if key is 'f'
+				acc = 'BACK'
 				@exitTrial false
 			else if key is 'j'
+				acc = 'FORWARD'
 				@exitTrial()
+
+		saveData([@message].concat([rt, key, acc]))
+
+class Slide1 extends Instruction
+	start: (@exitTrial) ->
+		super @exitTrial
+		multilineText("#{String.fromCharCode(9888)}", 0, 185, "80px Arial", 30, false, fillColor='red')
+		ctx.drawImage(jkey, 88, canvas.height-267, 43, 43)
+
+class LivingKeyMap extends Instruction
+	start: (@exitTrial) ->
+		super @exitTrial
+		ctx.drawImage(fkey, 205, canvas.height-337, 50, 50)
+		ctx.drawImage(jkey, 165, canvas.height-270, 50, 50)
+
+class SizeKeyMap extends Instruction
+	start: (@exitTrial) ->
+		super @exitTrial
+		ctx.drawImage(fkey, 165, canvas.height-275, 50, 50)
+		ctx.drawImage(jkey, 145, canvas.height-205, 50, 50)
 
 class Block
 	constructor: (@condition, @message, @trials) ->
@@ -257,6 +294,7 @@ class Block
 
 	start: (@exitBlock) ->
 		# Show ready message
+		hideButtons()
 		multilineText(@message, "center", "center", "35px Arial", 75)
 
 		setTimeout (=> @nextTrial()), IBI
@@ -279,25 +317,22 @@ class Block
 
 		# Save data locally in block
 		@data.push(trialData)
+
 		@nextTrial()
 
 	keyPress: (key) ->
 		@currTrial.logResponse(key)
 
 class PracticeBlock extends Block
-
 	endBlock: ->
 		@feedback()
 
 	feedback: ->
 		# get accuracy from data
 		accs = ((if typeof n[2] == 'string' then 0 else n[2]) for n in @data)
+		@accs = mean(accs)
 
-		console.log(accs)
-
-		accs = mean(accs)
-
-		multilineText("You got #{Math.round(accs*100.toString(), )}% of trials correct", 10, 60, "30px Arial")
+		multilineText("You got #{Math.round(@accs*100.toString(), )}% of trials correct", 10, 60, "30px Arial")
 
 		if accs < 0.75
 			multilineText("You need to get at least 75% right to continue", 10, 130, "25px Arial", 20, false)
@@ -328,12 +363,14 @@ class PracticeBlock extends Block
 		@trialNumber = 0
 		## Save old data -- add this
 		@data = []
+		hideButtons()
+
+		# Log that practice was restarted
+		saveData([@condition].concat(['REST', 'REST', @accs]))
+
 		@nextTrial()
 
-		
-
 class RTFeedbackBlock extends Block
-
 	endBlock: ->
 		@feedback()
 		setTimeout (=> @exitBlock()), IBI
@@ -373,7 +410,7 @@ class Trial
 			@startTime = (new Date).getTime()
 			setTimeout (=> @endTrial()), trialLength
 
-			), 350
+			), ITI
 
 
 	processJudgment: (judgment) ->
@@ -419,22 +456,26 @@ class FeedbackTrial extends Trial
 	endTrial: ->
 		if @flag is false
 			@flag = true
-			console.log(@acc)
+
 			switch @acc
 				when 0
 					# clear_canvas()
-					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')	
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, red)
+					thisITI = ITI*2	
 				when 'NA'
 					# clear_canvas()
-					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, red)
+					thisITI = ITI*2
 				when 1
 					clear_canvas()
+					thisITI = ITI
 				when 'other'
 					# clear_canvas()
 					multilineText("Use only the F or J keys!", "center", canvas.height/2+140, "30px Arial", lineheight = 20, clear=false)
-					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, red)
+					thisITI = ITI*2
 
-			setTimeout (=> @exitTrial([@rt, @resp, @acc])), ITI*2
+			setTimeout (=> @exitTrial([@rt, @resp, @acc])), thisITI
 
 class PracFeedbackTrial extends Trial
 	endTrial: ->
@@ -443,49 +484,52 @@ class PracFeedbackTrial extends Trial
 			switch @acc
 				when 0
 					# clear_canvas()
-					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, red)
+					thisITI = ITI*2
 				when 'NA'
 					# clear_canvas()
 					multilineText("You took too long!", "center", canvas.height/2+140, "30px Arial", lineheight = 20, clear=false)
-					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, red)
+					thisITI = ITI*2
 				when 1
 					clear_canvas()
+					thisITI = ITI
 				when 'other'
 					# clear_canvas()
 					multilineText("Use only the F or J keys!", "center", canvas.height/2+140, "30px Arial", lineheight = 20, clear=false)
-					drawCircle(canvas.width/2, canvas.height/2-40, 100, '#FF4719')
+					drawCircle(canvas.width/2, canvas.height/2-40, 100, red)
+					thisITI = ITI*2
 
-			setTimeout (=> @exitTrial([@rt, @resp, @acc])), ITI*2
+			setTimeout (=> @exitTrial([@rt, @resp, @acc])), thisITI
 			
 
 jQuery ->
 	$(document).keypress (event) ->
 		currSession.keyPress(event)
-	
+
 blocks = [
-	new Instruction instructions[0]
-	new Instruction instructions[1], "Go back"
-	new Instruction instructions[2], "Go back"
-	new Instruction instructions[3], "Bigger/smaller than soccer ball", "Living/non-living", "j"
-	new Instruction instructions[4], "Bigger/smaller than soccer ball", "Living/non-living", "f"
-	new Instruction instructions[5], "Go back"
-	new Instruction instructions[6], " ", " ", "j"
-	new Instruction instructions[7]	
-	new Instruction instructions[8], "Go back"
-	new Instruction instructions[9], "Go back", "Start practice!"
-	new PracticeBlock "livingPrac", "Get ready for 12 trials!", (new PracFeedbackTrial(n[0], n[1]) for n in all_stim['living_prac'])
-	new Instruction instructions[10], null, "Continue"
-	new Block "livingReal", "Get ready for 34 trials!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['living_real'])
-	new Instruction instructions[11], null
-	new Instruction instructions[12], " ", " ", "f"
-	new Instruction instructions[13], "Go back", "Start practice!"
-	new PracticeBlock "sizePrac", "Get ready for 12 trials!", (new PracFeedbackTrial(n[0], n[1]) for n in all_stim['size_prac'])
-	new Instruction instructions[14], null, "Start!"
-	new Block "sizeReal", "Get ready for 34 trials!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['size_real'])
-	new Instruction instructions[15], null, "Start practice!"
-	new PracticeBlock "mixedPrac", "Get ready for 24 trials!", (new PracFeedbackTrial(n[0], n[1]) for n in all_stim['mixed_prac'])
-	new Instruction instructions[16], null, "Start!"
-	new Block "mixedReal", "Get ready for 68 trials!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['mixed_real_1'])
+	# new Slide1 instructions[0]
+	# new Instruction instructions[1], "Back"
+	# new Instruction instructions[2], "Back"
+	# new Instruction instructions[3], "Bigger or smaller than soccer ball", "Living or non-living", "j"
+	# new Instruction instructions[4], "Bigger or smaller than soccer ball", "Living or non-living", "f"
+	# new LivingKeyMap instructions[5], "Back"
+	# new Instruction instructions[6], " ", " ", "j"
+	# new Instruction instructions[7]	
+	# new Instruction instructions[8], "Back", "Start practice!", null, 'white', '#66FF99'
+	new PracticeBlock "livingPrac", "Get ready for 12 words!", (new PracFeedbackTrial(n[0], n[1]) for n in all_stim['living_prac'])
+	# new Instruction instructions[9], null, "Continue"
+	# new Block "livingReal", "Get ready for 34 words!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['living_real'])
+	# new SizeKeyMap instructions[10], null
+	# new Instruction instructions[11], " ", " ", "f"
+	# new Instruction instructions[12], "Back", "Start practice!", null, 'white', '#66FF99'
+	# new PracticeBlock "sizePrac", "Get ready for 12 words!", (new PracFeedbackTrial(n[0], n[1]) for n in all_stim['size_prac'])
+	# new Instruction instructions[13], null, "Start!", null, 'white', '#66FF99'
+	# new Block "sizeReal", "Get ready for 34 words!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['size_real'])
+	# new Instruction instructions[14], null, "Start practice!", null, 'white', '#66FF99'
+	# new PracticeBlock "mixedPrac", "Get ready for 24 words!", (new PracFeedbackTrial(n[0], n[1]) for n in all_stim['mixed_prac'])
+	# new Instruction instructions[15], null, "Start!", null, 'white', '#66FF99'
+	# new Block "mixedReal", "Get ready for 68 words!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['mixed_real_1'])
 ]
 
 

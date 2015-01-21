@@ -649,7 +649,7 @@
   });
 
   blocks = [
-    new PracticeBlock("livingPrac", "Get ready for 12 words!", (function() {
+    new Slide1(instructions[0]), new Instruction(instructions[1], "Back"), new Instruction(instructions[2], "Back"), new Instruction(instructions[3], "Bigger or smaller than soccer ball", "Living or non-living", "j"), new Instruction(instructions[4], "Bigger or smaller than soccer ball", "Living or non-living", "f"), new LivingKeyMap(instructions[5], "Back"), new Instruction(instructions[6], " ", " ", "j"), new Instruction(instructions[7]), new Instruction(instructions[8], "Back", "Start practice!", null, 'white', '#66FF99'), new PracticeBlock("livingPrac", "Get ready for 12 words!", (function() {
       var _i, _len, _ref7, _results;
       _ref7 = all_stim['living_prac'];
       _results = [];
@@ -658,7 +658,7 @@
         _results.push(new PracFeedbackTrial(n[0], n[1]));
       }
       return _results;
-    })())
+    })()), new Instruction(instructions[9], null, "Continue")
   ];
 
   currSession = new Session(blocks);

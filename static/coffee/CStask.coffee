@@ -508,17 +508,17 @@ jQuery ->
 		currSession.keyPress(event)
 
 blocks = [
-	# new Slide1 instructions[0]
-	# new Instruction instructions[1], "Back"
-	# new Instruction instructions[2], "Back"
-	# new Instruction instructions[3], "Bigger or smaller than soccer ball", "Living or non-living", "j"
-	# new Instruction instructions[4], "Bigger or smaller than soccer ball", "Living or non-living", "f"
-	# new LivingKeyMap instructions[5], "Back"
-	# new Instruction instructions[6], " ", " ", "j"
-	# new Instruction instructions[7]	
-	# new Instruction instructions[8], "Back", "Start practice!", null, 'white', '#66FF99'
+	new Slide1 instructions[0]
+	new Instruction instructions[1], "Back"
+	new Instruction instructions[2], "Back"
+	new Instruction instructions[3], "Bigger or smaller than soccer ball", "Living or non-living", "j"
+	new Instruction instructions[4], "Bigger or smaller than soccer ball", "Living or non-living", "f"
+	new LivingKeyMap instructions[5], "Back"
+	new Instruction instructions[6], " ", " ", "j"
+	new Instruction instructions[7]	
+	new Instruction instructions[8], "Back", "Start practice!", null, 'white', '#66FF99'
 	new PracticeBlock "livingPrac", "Get ready for 12 words!", (new PracFeedbackTrial(n[0], n[1]) for n in all_stim['living_prac'])
-	# new Instruction instructions[9], null, "Continue"
+	new Instruction instructions[9], null, "Continue"
 	# new Block "livingReal", "Get ready for 34 words!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['living_real'])
 	# new SizeKeyMap instructions[10], null
 	# new Instruction instructions[11], " ", " ", "f"

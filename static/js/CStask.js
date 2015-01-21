@@ -35,7 +35,7 @@
   height = canvas.height;
 
   saveData = function(newdata) {
-    return psiturk.recordTrialData(newdata);
+    return psiTurk.recordTrialData(newdata);
   };
 
   mean = function(numericArray) {
@@ -184,8 +184,8 @@
     };
 
     Session.prototype.endSession = function() {
-      psiturk.saveData();
-      return psiturk.completeHIT();
+      psiTurk.saveData();
+      return psiTurk.completeHIT();
     };
 
     Session.prototype.keyPress = function(e) {
@@ -675,8 +675,8 @@
     return currSession.start();
   });
 
-  fkey.src = "img/f_key.png";
+  fkey.src = "static/img/f_key.png";
 
-  jkey.src = "img/j_key.png";
+  jkey.src = "static/img/j_key.png";
 
 }).call(this);

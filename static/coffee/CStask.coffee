@@ -111,7 +111,7 @@ height = canvas.height
 # globalData = []
 saveData = (newdata) ->
 	# globalData.push([newdata])
-	psiturk.recordTrialData(newdata)
+	psiTurk.recordTrialData(newdata)
 
 mean = (numericArray) ->
 	sum = numericArray.reduce((a, b) -> a + b)
@@ -216,9 +216,9 @@ class Session
 	
 	endSession: ->
 		# Show finished message
-		psiturk.saveData()
+		psiTurk.saveData()
 		# $('#done').modal('show')
-		psiturk.completeHIT()
+		psiTurk.completeHIT()
 
 	keyPress: (e) ->
 		code = e.charCode || e.keyCode
@@ -541,7 +541,7 @@ jkey = new Image()
 fkey.onload = ( -> currSession.start())
 jkey.onload = ( -> currSession.start())
 
-fkey.src = "img/f_key.png"
-jkey.src = "img/j_key.png"
+fkey.src = "static/img/f_key.png"
+jkey.src = "static/img/j_key.png"
 
 

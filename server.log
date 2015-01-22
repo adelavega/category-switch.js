@@ -365,3 +365,20 @@ Traceback (most recent call last):
   File "/usr/local/lib/python2.7/site-packages/flask/templating.py", line 64, in get_source
     raise TemplateNotFound(template)
 TemplateNotFound: img/j_key.png
+2015-01-20 23:11:13,303 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,309 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,313 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,313 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,344 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,352 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,360 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,365 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,377 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,394 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,395 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,397 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,408 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,408 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,408 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,412 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-20 23:11:13,413 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js

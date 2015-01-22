@@ -658,7 +658,52 @@
         _results.push(new PracFeedbackTrial(n[0], n[1]));
       }
       return _results;
-    })()), new Instruction(instructions[9], null, "Continue")
+    })()), new Instruction(instructions[9], null, "Continue"), new Block("livingReal", "Get ready for 34 words!", (function() {
+      var _i, _len, _ref7, _results;
+      _ref7 = all_stim['living_real'];
+      _results = [];
+      for (_i = 0, _len = _ref7.length; _i < _len; _i++) {
+        n = _ref7[_i];
+        _results.push(new FeedbackTrial(n[0], n[1]));
+      }
+      return _results;
+    })()), new SizeKeyMap(instructions[10], null), new Instruction(instructions[11], " ", " ", "f"), new Instruction(instructions[12], "Back", "Start practice!", null, 'white', '#66FF99'), new PracticeBlock("sizePrac", "Get ready for 12 words!", (function() {
+      var _i, _len, _ref7, _results;
+      _ref7 = all_stim['size_prac'];
+      _results = [];
+      for (_i = 0, _len = _ref7.length; _i < _len; _i++) {
+        n = _ref7[_i];
+        _results.push(new PracFeedbackTrial(n[0], n[1]));
+      }
+      return _results;
+    })()), new Instruction(instructions[13], null, "Start!", null, 'white', '#66FF99'), new Block("sizeReal", "Get ready for 34 words!", (function() {
+      var _i, _len, _ref7, _results;
+      _ref7 = all_stim['size_real'];
+      _results = [];
+      for (_i = 0, _len = _ref7.length; _i < _len; _i++) {
+        n = _ref7[_i];
+        _results.push(new FeedbackTrial(n[0], n[1]));
+      }
+      return _results;
+    })()), new Instruction(instructions[14], null, "Start practice!", null, 'white', '#66FF99'), new PracticeBlock("mixedPrac", "Get ready for 24 words!", (function() {
+      var _i, _len, _ref7, _results;
+      _ref7 = all_stim['mixed_prac'];
+      _results = [];
+      for (_i = 0, _len = _ref7.length; _i < _len; _i++) {
+        n = _ref7[_i];
+        _results.push(new PracFeedbackTrial(n[0], n[1]));
+      }
+      return _results;
+    })()), new Instruction(instructions[15], null, "Start!", null, 'white', '#66FF99'), new Block("mixedReal", "Get ready for 68 words!", (function() {
+      var _i, _len, _ref7, _results;
+      _ref7 = all_stim['mixed_real_1'];
+      _results = [];
+      for (_i = 0, _len = _ref7.length; _i < _len; _i++) {
+        n = _ref7[_i];
+        _results.push(new FeedbackTrial(n[0], n[1]));
+      }
+      return _results;
+    })())
   ];
 
   currSession = new Session(blocks);

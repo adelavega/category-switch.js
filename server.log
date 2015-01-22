@@ -382,3 +382,185 @@ TemplateNotFound: img/j_key.png
 2015-01-20 23:11:13,408 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
 2015-01-20 23:11:13,412 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
 2015-01-20 23:11:13,413 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,115 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,115 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,172 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,455 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,700 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,743 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,847 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,935 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,968 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:32,989 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:33,017 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:33,024 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:33,041 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:33,062 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:33,093 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:33,121 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 18:57:33,135 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:06,710 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:06,726 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:06,742 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:06,988 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,246 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,384 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,435 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,542 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,552 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,612 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,637 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,642 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,647 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,670 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,675 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,702 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:14:07,729 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:20:49,979 Exception on /consent [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/user_utils.py", line 15, in new_func
+    resp = make_response(func(*args, **kwargs))
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 309, in give_consent
+    consent_string = insert_mode(consent_string, mode)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 645, in insert_mode
+    new_html = page_html[:match.end()] + "&mode=" + mode +\
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 1141: ordinal not in range(128)
+2015-01-21 19:20:58,047 Exception on /consent [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/user_utils.py", line 15, in new_func
+    resp = make_response(func(*args, **kwargs))
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 309, in give_consent
+    consent_string = insert_mode(consent_string, mode)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 645, in insert_mode
+    new_html = page_html[:match.end()] + "&mode=" + mode +\
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 1141: ordinal not in range(128)
+2015-01-21 19:21:11,463 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,470 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,473 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,476 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,479 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,479 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,479 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,482 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,482 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,485 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,488 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,488 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,491 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,494 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,495 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,496 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:11,502 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:20,180 Exception on /consent [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/user_utils.py", line 15, in new_func
+    resp = make_response(func(*args, **kwargs))
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 309, in give_consent
+    consent_string = insert_mode(consent_string, mode)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 645, in insert_mode
+    new_html = page_html[:match.end()] + "&mode=" + mode +\
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 1141: ordinal not in range(128)
+2015-01-21 19:21:31,509 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:31,628 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:31,662 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:31,820 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:31,876 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,036 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,177 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,248 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,289 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,354 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,375 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,413 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,449 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,452 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,464 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,470 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:32,499 /usr/local/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2015-01-21 19:21:35,158 Exception on /consent [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/user_utils.py", line 15, in new_func
+    resp = make_response(func(*args, **kwargs))
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 309, in give_consent
+    consent_string = insert_mode(consent_string, mode)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 645, in insert_mode
+    new_html = page_html[:match.end()] + "&mode=" + mode +\
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 1141: ordinal not in range(128)
+2015-01-21 19:22:54,173 Exception on /consent [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/user_utils.py", line 15, in new_func
+    resp = make_response(func(*args, **kwargs))
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 309, in give_consent
+    consent_string = insert_mode(consent_string, mode)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 645, in insert_mode
+    new_html = page_html[:match.end()] + "&mode=" + mode +\
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 1141: ordinal not in range(128)
+2015-01-21 19:23:06,844 Exception on /consent [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/user_utils.py", line 15, in new_func
+    resp = make_response(func(*args, **kwargs))
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 309, in give_consent
+    consent_string = insert_mode(consent_string, mode)
+  File "/usr/local/lib/python2.7/site-packages/psiturk/experiment.py", line 645, in insert_mode
+    new_html = page_html[:match.end()] + "&mode=" + mode +\
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 1141: ordinal not in range(128)

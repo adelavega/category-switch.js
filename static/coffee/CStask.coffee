@@ -1,11 +1,12 @@
 # Category-switch task
 
 psiTurk = PsiTurk(uniqueId, adServerLoc)
+psiTurk.preloadPages(['postquestionnaire.html', 'debriefing.html'])
 
 all_stim = {"living_real": [["marble", "nonliv"], ["oak", "living"], ["lizard", "living"], ["coat", "nonliv"], ["sparrow", "living"], ["goldfish", "living"], ["lion", "living"], ["alligator", "living"], ["pebble", "nonliv"], ["shark", "living"], ["knob", "nonliv"], ["table", "nonliv"], ["shark", "living"], ["bicycle", "nonliv"], ["cloud", "nonliv"], ["marble", "nonliv"], ["cloud", "nonliv"], ["alligator", "living"], ["sparrow", "living"], ["lizard", "living"], ["snowflake", "nonliv"], ["mushroom", "living"], ["lion", "living"], ["pebble", "nonliv"], ["bicycle", "nonliv"], ["table", "nonliv"], ["oak", "living"], ["mushroom", "living"], ["knob", "nonliv"], ["marble", "nonliv"], ["coat", "nonliv"], ["goldfish", "living"], ["snowflake", "nonliv"], ["oak", "living"]], "living_prac": [["alligator", "living"], ["snowflake", "nonliv"], ["bicycle", "nonliv"], ["mushroom", "living"], ["cloud", "nonliv"], ["goldfish", "living"], ["lizard", "living"], ["table", "nonliv"], ["marble", "nonliv"], ["shark", "living"], ["knob", "nonliv"], ["lion", "living"]], "mixed_prac": [["marble", "nonliv"], ["table", "nonliv"], ["alligator", "big"], ["sparrow", "small"], ["snowflake", "small"], ["goldfish", "small"], ["mushroom", "living"], ["cloud", "nonliv"], ["knob", "small"], ["oak", "living"], ["marble", "small"], ["bicycle", "nonliv"], ["lizard", "living"], ["knob", "nonliv"], ["lizard", "small"], ["bicycle", "big"], ["pebble", "nonliv"], ["shark", "big"], ["sparrow", "living"], ["lion", "living"], ["goldfish", "living"], ["lion", "big"], ["table", "big"], ["coat", "big"]], "size_prac": [["pebble", "small"], ["bicycle", "big"], ["sparrow", "small"], ["coat", "big"], ["lion", "big"], ["lizard", "small"], ["snowflake", "small"], ["shark", "big"], ["goldfish", "small"], ["knob", "small"], ["cloud", "big"], ["table", "big"]], "size_real": [["table", "big"], ["knob", "small"], ["pebble", "small"], ["oak", "big"], ["bicycle", "big"], ["coat", "big"], ["shark", "big"], ["lizard", "small"], ["alligator", "big"], ["lion", "big"], ["snowflake", "small"], ["bicycle", "big"], ["shark", "big"], ["lizard", "small"], ["table", "big"], ["mushroom", "small"], ["marble", "small"], ["cloud", "big"], ["oak", "big"], ["knob", "small"], ["pebble", "small"], ["sparrow", "small"], ["goldfish", "small"], ["cloud", "big"], ["mushroom", "small"], ["snowflake", "small"], ["goldfish", "small"], ["knob", "small"], ["table", "big"], ["alligator", "big"], ["sparrow", "small"], ["marble", "small"], ["lion", "big"], ["coat", "big"]], "mixed_real_1": [["marble", "nonliv"], ["sparrow", "living"], ["table", "big"], ["lion", "big"], ["sparrow", "small"], ["table", "nonliv"], ["lion", "big"], ["sparrow", "living"], ["cloud", "nonliv"], ["alligator", "big"], ["lizard", "small"], ["marble", "nonliv"], ["table", "big"], ["pebble", "small"], ["shark", "living"], ["coat", "nonliv"], ["alligator", "living"], ["pebble", "small"], ["lion", "living"], ["snowflake", "nonliv"], ["lizard", "living"], ["marble", "small"], ["bicycle", "big"], ["shark", "big"], ["alligator", "living"], ["lizard", "small"], ["lion", "big"], ["goldfish", "small"], ["alligator", "big"], ["pebble", "nonliv"], ["shark", "big"], ["snowflake", "nonliv"], ["mushroom", "living"], ["snowflake", "small"], ["knob", "small"], ["goldfish", "living"], ["cloud", "big"], ["mushroom", "small"], ["bicycle", "nonliv"], ["shark", "living"], ["knob", "small"], ["marble", "small"], ["oak", "big"], ["snowflake", "small"], ["coat", "big"], ["knob", "nonliv"], ["sparrow", "living"], ["lion", "living"], ["coat", "big"], ["mushroom", "living"], ["table", "nonliv"], ["oak", "living"], ["marble", "nonliv"], ["knob", "nonliv"], ["oak", "big"], ["lizard", "living"], ["mushroom", "small"], ["oak", "living"], ["goldfish", "living"], ["bicycle", "nonliv"], ["sparrow", "small"], ["cloud", "nonliv"], ["pebble", "nonliv"], ["goldfish", "small"], ["table", "big"], ["coat", "nonliv"], ["bicycle", "big"], ["cloud", "big"]], "mixed_real_2": [["oak", "big"], ["coat", "big"], ["goldfish", "living"], ["knob", "nonliv"], ["marble", "nonliv"], ["lizard", "small"], ["goldfish", "small"], ["cloud", "nonliv"], ["oak", "big"], ["table", "nonliv"], ["pebble", "nonliv"], ["coat", "big"], ["shark", "living"], ["table", "nonliv"], ["goldfish", "small"], ["coat", "big"], ["lizard", "small"], ["knob", "nonliv"], ["coat", "nonliv"], ["snowflake", "small"], ["marble", "nonliv"], ["mushroom", "small"], ["table", "big"], ["cloud", "big"], ["alligator", "big"], ["lizard", "living"], ["cloud", "nonliv"], ["sparrow", "small"], ["mushroom", "living"], ["alligator", "living"], ["table", "big"], ["goldfish", "living"], ["cloud", "big"], ["lion", "big"], ["snowflake", "nonliv"], ["shark", "living"], ["sparrow", "living"], ["marble", "small"], ["pebble", "nonliv"], ["knob", "nonliv"], ["alligator", "big"], ["shark", "big"], ["pebble", "small"], ["snowflake", "small"], ["bicycle", "big"], ["lion", "living"], ["oak", "living"], ["goldfish", "living"], ["shark", "big"], ["sparrow", "small"], ["oak", "living"], ["mushroom", "living"], ["lizard", "living"], ["bicycle", "big"], ["marble", "small"], ["alligator", "living"], ["snowflake", "nonliv"], ["lion", "living"], ["pebble", "small"], ["oak", "big"], ["coat", "nonliv"], ["bicycle", "nonliv"], ["knob", "small"], ["sparrow", "living"], ["lion", "big"], ["mushroom", "small"], ["knob", "small"], ["bicycle", "nonliv"]]}
 
 instructions = ["In this task, we're going to test your ability \nto quickly and accurately categorize words\n\n\n
-            This test requires 30 minutes of undivided attention\n\n\n
+            This test requires 10-15 minutes of undivided attention\n\n\n
 
 Press          to continue or try again later
 "
@@ -94,7 +95,14 @@ Now you're going to categorize 68 more words\n
 These will be 'real', not practice words\n\n
 Remember to respond quickly without making mistakes\n\n
 Are you ready?"
+"Well done! Go ahead and take a break\n\n
+
+Now you're going to categorize 68 more words\n
+These will be 'real', not practice words\n\n
+Remember to respond quickly without making mistakes\n\n
+Are you ready? This will be the final block!"
 ]
+
 
 trialLength = 5000
 ITI = 350
@@ -107,11 +115,6 @@ c = document.getElementById("canvas")
 ctx = c.getContext("2d")
 width = canvas.width
 height = canvas.height
-
-# globalData = []
-saveData = (newdata) ->
-	# globalData.push([newdata])
-	psiTurk.recordTrialData(newdata)
 
 mean = (numericArray) ->
 	sum = numericArray.reduce((a, b) -> a + b)
@@ -187,6 +190,7 @@ class Session
 		@imgs_loaded = 0
 		
 	start: ->
+		psiTurk.finishInstructions()
 		@imgs_loaded++
 		if @imgs_loaded is 2
 			@nextBlock()
@@ -209,16 +213,15 @@ class Session
 		@currBlock.start ((arg1) => @exitBlock arg1)
 
 	exitBlock: (next = true) ->
+		psiTurk.saveData()
 		if next
 			@nextBlock()
 		else
 			@prevBlock()
 	
 	endSession: ->
-		# Show finished message
-		psiTurk.saveData()
-		# $('#done').modal('show')
 		psiTurk.completeHIT()
+		
 
 	keyPress: (e) ->
 		code = e.charCode || e.keyCode
@@ -228,6 +231,28 @@ class Session
 			$('rightButton').click()
 		
 		@currBlock.keyPress input
+
+	buttonClick: ->
+		@currBlock.buttonClick()
+
+class Questionnaire
+	start: (@exitTrial) ->
+		$('body').html(psiTurk.getPage('postquestionnaire.html'))
+
+	buttonClick: ->
+		$("select").each (i, val) ->
+		  psiTurk.recordUnstructuredData @id, @value
+
+		psiTurk.recordUnstructuredData 'openended', $('#openended').val()
+
+		@exitTrial()
+
+class Debriefing
+	start: (@exitTrial) ->
+		$('body').html(psiTurk.getPage('debriefing.html'))
+
+	buttonClick: ->
+		@exitTrial()
 
 class Instruction
 	constructor: (@message, @left_key = null, @right_key = "Continue", @corrResp = null, @left_color = 'white', @right_color = 'white') ->
@@ -265,7 +290,8 @@ class Instruction
 				acc = 'FORWARD'
 				@exitTrial()
 
-		saveData([@message].concat([rt, key, acc]))
+		psiTurk.recordTrialData({'block':@message, 'rt': rt, 'resp': key, 'acc':acc})
+
 
 class Slide1 extends Instruction
 	start: (@exitTrial) ->
@@ -313,7 +339,7 @@ class Block
 
 	logTrial: (trialData) ->
 		# Save data to server (or big data file)
-		saveData([@condition].concat(trialData))
+		psiTurk.recordTrialData({'block':@condition, 'rt': trialData[0], 'resp': trialData[1], 'acc':trialData[2]})
 
 		# Save data locally in block
 		@data.push(trialData)
@@ -334,7 +360,7 @@ class PracticeBlock extends Block
 
 		multilineText("You got #{Math.round(@accs*100.toString(), )}% of trials correct", 10, 60, "30px Arial")
 
-		if accs < 0.75
+		if @accs < 0.75
 			multilineText("You need to get at least 75% right to continue", 10, 130, "25px Arial", 20, false)
 			
 			keyText("Try again", 'left')
@@ -366,7 +392,7 @@ class PracticeBlock extends Block
 		hideButtons()
 
 		# Log that practice was restarted
-		saveData([@condition].concat(['REST', 'REST', @accs]))
+		psiTurk.recordTrialData({'block':@condition, 'rt': 'REST', 'resp': 'REST', 'acc': @accs})
 
 		@nextTrial()
 
@@ -507,6 +533,9 @@ jQuery ->
 	$(document).keypress (event) ->
 		currSession.keyPress(event)
 
+	$("body").on('click','button',  ->
+		currSession.buttonClick())
+
 blocks = [
 	new Slide1 instructions[0]
 	new Instruction instructions[1], "Back"
@@ -529,9 +558,12 @@ blocks = [
 	new Instruction instructions[14], null, "Start practice!", null, 'white', '#66FF99'
 	new PracticeBlock "mixedPrac", "Get ready for 24 words!", (new PracFeedbackTrial(n[0], n[1]) for n in all_stim['mixed_prac'])
 	new Instruction instructions[15], null, "Start!", null, 'white', '#66FF99'
-	new Block "mixedReal", "Get ready for 68 words!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['mixed_real_1'])
+	new Block "mixedReal1", "Get ready for 68 words!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['mixed_real_1'])
+	new Instruction instructions[16], null, "Start!", null, 'white', '#66FF99'
+	new Block "mixedReal2", "Get ready for 68 words!", (new FeedbackTrial(n[0], n[1]) for n in all_stim['mixed_real_2'])
+	new Questionnaire
+	new Debriefing
 ]
-
 
 currSession = new Session(blocks)
 
@@ -543,5 +575,3 @@ jkey.onload = ( -> currSession.start())
 
 fkey.src = "static/img/f_key.png"
 jkey.src = "static/img/j_key.png"
-
-
